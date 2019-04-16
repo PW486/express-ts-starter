@@ -1,10 +1,10 @@
 import express from 'express';
-var app = express()
+const app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
-app.listen(3000, function () {
-  console.log('app listening on port 3000')
-})
+app.listen(3000, () => {
+  console.log('app listening on port 3000');
+});

@@ -10,3 +10,4 @@
 4. unused packages ```npm i -g depcheck```
 5. outdated packages ```npm i -g npm-check-updates```
 6. check security vulnerabilities ```npm i -g snyk```
+7. ```prettier --write src/**/*.ts```
