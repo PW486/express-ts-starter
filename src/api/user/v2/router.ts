@@ -10,11 +10,11 @@ router.use(function timeLog(req, res, next) {
 
 // define the home page route
 router.get('/', function(req, res) {
-  res.send('user1');
+  res.send('user2');
 });
 // define the about route
 router.get('/about', function(req, res) {
-  res.send('user1/about');
+  res.send('user2/about');
 });
 
 module.exports = router;
