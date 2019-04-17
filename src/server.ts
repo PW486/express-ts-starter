@@ -1,6 +1,14 @@
 import express from 'express';
 const app = express();
 
+const apiFolder = '/api/';
+import fs from 'fs';
+import path from 'path';
+
+fs.readdirSync(path.join(__dirname, apiFolder)).forEach(file => {
+  console.log(file);
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
