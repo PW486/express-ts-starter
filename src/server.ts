@@ -1,17 +1,17 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import fs from 'fs';
+import helmet from 'helmet';
+import morgan from 'morgan';
 import path from 'path';
 
 const app = express();
 
+app.use(cors());
+app.use(helmet());
+app.use(morgan('combined'));
 app.use(bodyParser.json());
-// app.use((req, res, next) => {
-//   if (!req.is('application/json')) {
-//     return res.sendStatus(406);
-//   }
-//   next();
-// })
 
 const apiDir = 'api';
 const collections = fs.readdirSync(path.join(__dirname, apiDir));
