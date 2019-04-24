@@ -2,7 +2,7 @@ import { Express } from 'express';
 import fs from 'fs';
 import path from 'path';
 
-export async function initRoutes(app: Express) {
+export async function initRoute(app: Express) {
   const apiDir = path.join(__dirname, '../api');
   const collections = fs.readdirSync(apiDir);
   for (const collection of collections) {

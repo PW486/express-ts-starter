@@ -13,7 +13,6 @@
 
 ## TODO
 
-- [ ] middleware refactoring
 - [ ] TypeORM ormconfig.json -> ormconfig.js(name)
 - [ ] logger (winston)
 - [ ] API Implement (board-get/post/put/patch/delete)
