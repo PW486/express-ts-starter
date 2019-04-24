@@ -15,8 +15,7 @@
 - [ ] Check security vulnerabilities `npm i -g snyk`
 - [ ] TypeORM ormconfig.json -> ormconfig.js(name)
 - [ ] ElephantSQL
-- [ ] DB connection
-- [ ] Fix API versioning (entity)
+- [ ] logger (winston)
 - [ ] TypeORM + API Implement (board-get/post/put/patch/delete)
 - [ ] multer (board-post/put)
 - [ ] jwt auth(user/user)
