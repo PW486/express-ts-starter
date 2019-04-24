@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { getManager } from "typeorm";
-import { Post } from "../post.entity";
+import { Post } from "../../post.entity";
 
 export async function postPostAction(request: Request, response: Response) {
 

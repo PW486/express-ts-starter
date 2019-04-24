@@ -13,8 +13,11 @@
 - [ ] Check unused packages `npm i -g depcheck`
 - [ ] Check outdated packages `npm i -g npm-check-updates`
 - [ ] Check security vulnerabilities `npm i -g snyk`
-- [ ] Swagger doc
-- [ ] Squelize + API Implement (board-get/post/put/patch/delete)
+- [ ] TypeORM ormconfig.json -> ormconfig.js(name)
+- [ ] ElephantSQL
+- [ ] DB connection
+- [ ] Fix API versioning (entity)
+- [ ] TypeORM + API Implement (board-get/post/put/patch/delete)
 - [ ] multer (board-post/put)
 - [ ] jwt auth(user/user)
 - [ ] Jest init

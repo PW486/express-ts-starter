@@ -17,16 +17,18 @@ app.use(helmet());
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-// const apiDir = 'api';
-// const collections = fs.readdirSync(path.join(__dirname, apiDir));
-// for (const collection of collections) {
-//   const versions = fs.readdirSync(path.join(__dirname, apiDir, collection));
-//   for (const version of versions) {
-//     console.log(collection, version);
-//     const versionPath = path.join(__dirname, apiDir, collection, version);
-//     app.use(`/${version}`, require(versionPath));
-//   }
-// }
+const apiDir = path.join(__dirname, 'api');
+const collections = fs.readdirSync(apiDir);
+for (const collection of collections) {
+  const collectionDir = path.join(apiDir, collection);
+  const versions = fs.readdirSync(collectionDir);
+  for (const version of versions) {
+    if (version.match(/v[0-9]/)) {
+      const versionPath = path.join(collectionDir, version);
+      app.use(`/${version}`, require(versionPath));
+    }
+  }
+}
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
