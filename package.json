@@ -1,7 +1,7 @@
 {
-  "name": "idk",
-  "version": "1.0.0",
-  "description": "i dont know what is this project",
+  "name": "express-ts",
+  "version": "0.0.1",
+  "description": "Quick Start BackEnd (Node/TypeScript/Express/TypeORM)",
   "scripts": {
     "start": "npm run serve",
     "build": "npm run build-ts",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PW486/idk.git"
+    "url": "https://github.com/PW486/express-ts.git"
   },
   "author": "PW486",
   "license": "MIT",

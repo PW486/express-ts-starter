@@ -1,6 +1,6 @@
-# idk
+# express-ts
 
-> i dont know what is this project
+> 🚀 Quick Start BackEnd (Node/TypeScript/Express/TypeORM)
 
 ## Key Points
 
@@ -13,7 +13,6 @@
 
 ## TODO
 
-- [ ] logger (winston)
 - [ ] express-validator / class-validator
 - [ ] error handler
 - [ ] API Implement (board-get/post/put/patch/delete)
