@@ -41,7 +41,7 @@ module.exports = [
     "port": 5432,
     "username": "postgres",
     "password": DB_PASSWORD,
-    "database": "production",
+    "database": "prod",
     "synchronize": false,
     "entities": [
       "dist/api/**/*.entity.js"

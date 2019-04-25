@@ -1,5 +1,7 @@
-import dotenv from "dotenv";
-dotenv.config({ path: ".env.example" });
+import { config } from 'dotenv';
+import { existsSync } from 'fs';
+
+existsSync('.env') ? config() : config({ path: '.env.example' });
 
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const PORT = Number(process.env.PORT) || 3000;
