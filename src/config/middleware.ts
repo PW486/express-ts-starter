@@ -5,17 +5,15 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import logger from '../util/logger';
 
-export async function initMiddleware(app: Express) {
+export async function mountMiddleware(app: Express) {
   app.use(cors());
   app.use(helmet());
-  app.use(
-    morgan('combined', {
-      stream: {
-        write(text: string) {
-          logger.info(text);
-        },
+  app.use(morgan('combined', {
+    stream: {
+      write(text: string) {
+        logger.info(text);
       },
-    }),
-  );
+    },
+  }));
   app.use(bodyParser.json());
 }

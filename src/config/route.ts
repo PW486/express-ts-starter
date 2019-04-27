@@ -1,17 +1,16 @@
 import { Express } from 'express';
-import fs from 'fs';
-import path from 'path';
+import { readdirSync } from 'fs';
+import { join } from 'path';
 
-export async function initRoute(app: Express) {
-  const apiDir = path.join(__dirname, '../api');
-  const collections = fs.readdirSync(apiDir);
-  for (const collection of collections) {
-    const collectionDir = path.join(apiDir, collection);
-    const versions = fs.readdirSync(collectionDir);
-    for (const version of versions) {
-      if (version.match(/v[0-9]/)) {
-        const versionPath = path.join(collectionDir, version);
-        app.use(`/${version}`, require(versionPath));
+const apiPath = join(__dirname, '../api');
+
+export async function mountRoute(app: Express) {
+  for (const collection of readdirSync(apiPath)) {
+    const collectionPath = join(apiPath, collection);
+
+    for (const version of readdirSync(collectionPath)) {
+      if (/v[0-9]+$/.test(version)) {
+        app.use(`/${version}`, require(join(collectionPath, version)));
       }
     }
   }

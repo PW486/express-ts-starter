@@ -13,9 +13,11 @@
 
 ## TODO
 
+- [ ] update apis index/route
 - [ ] express-validator / class-validator
 - [ ] error handler
 - [ ] API Implement (board-get/post/put/patch/delete)
 - [ ] multer (board-post/put)
+- [ ] TypeORM migration
 - [ ] jwt auth (user)
 - [ ] jest init
