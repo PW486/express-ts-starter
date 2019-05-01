@@ -13,7 +13,9 @@
 
 ## TODO
 
-- [ ] update apis index/route
+- [ ] api index to server.ts
+- [ ] update apis route to index.
+- [ ] directory plural
 - [ ] express-validator / class-validator
 - [ ] error handler
 - [ ] API Implement (board-get/post/put/patch/delete)
@@ -30,3 +32,20 @@
 3. validator(route.validator+ multer) (400)
 4. action(404)
 5. server error(500)
+
+## Error msg
+
+```json
+{
+  "code": 404,
+  "message": "User Not Founded",
+  "description": "user is not founded"
+}
+```
+```json
+{
+  "code": 400,
+  "message": "Bad Request",
+  "description": express-validator error message
+}
+```
