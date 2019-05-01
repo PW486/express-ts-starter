@@ -1,12 +1,16 @@
-import { Request, Response } from "express";
-import * as express from "express";
-import { AppRoutes } from "./post.route";
+import { Router, Request, Response } from "express";
+import { routes } from "./post.route";
+import { validationResult } from 'express-validator/check';
 
-const router = express.Router();
+const router: any = Router();
 
-AppRoutes.forEach(route => {
-  (router as any)[route.method](route.path, (request: Request, response: Response, next: Function) => {
-    route.action(request, response)
+routes.forEach(route => {
+  router[route.method](route.path, route.upload ? route.upload : [], route.validator, (req: Request, res: Response, next: Function) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    route.action(req, res)
       .then(() => next)
       .catch(err => next(err));
   });

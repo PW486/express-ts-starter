@@ -21,3 +21,12 @@
 - [ ] TypeORM migration
 - [ ] jwt auth (user)
 - [ ] jest init
+
+
+## Handler pipe
+
+1. security issue - forbidden(403)
+2. auth (401)
+3. validator(route.validator+ multer) (400)
+4. action(404)
+5. server error(500)

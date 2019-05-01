@@ -1,22 +1,18 @@
 import { Request, Response } from "express";
-import { getManager } from "typeorm";
+import { getRepository } from "typeorm";
 import { Post } from "../../post.entity";
 
-export async function postGetByIdAction(request: Request, response: Response) {
+export async function postGetByIdAction(req: Request, res: Response) {
 
-  // get a post repository to perform operations with post
-  const postRepository = getManager().getRepository(Post);
+  const postRepository = getRepository(Post);
 
-  // load a post by a given post id
-  const post = await postRepository.findOne(request.params.id);
+  const post = await postRepository.findOne(req.params.id);
 
-  // if post was not found return 404 to the client
   if (!post) {
-    response.status(404);
-    response.end();
+    res.status(404).json({ message: 'post not found' });
+    res.end();
     return;
   }
 
-  // return loaded post
-  response.send(post);
+  res.send(post);
 }

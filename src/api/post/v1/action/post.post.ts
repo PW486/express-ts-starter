@@ -1,18 +1,15 @@
 import { Request, Response } from "express";
-import { getManager } from "typeorm";
+import { getRepository } from "typeorm";
 import { Post } from "../../post.entity";
 
-export async function postPostAction(request: Request, response: Response) {
+export async function postPostAction(req: Request, res: Response) {
+  console.log(req.file);
 
-  // get a post repository to perform operations with post
-  const postRepository = getManager().getRepository(Post);
+  const postRepository = getRepository(Post);
 
-  // create a real post object from post json object sent over http
-  const newPost = postRepository.create(request.body);
+  const newPost = postRepository.create(req.body);
 
-  // save received post
   await postRepository.save(newPost);
 
-  // return saved post back
-  response.send(newPost);
+  res.send(newPost);
 }
