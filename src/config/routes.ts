@@ -5,7 +5,7 @@ import { validationResult } from 'express-validator/check';
 
 const apiPath = join(__dirname, '../api');
 
-export async function mountRoute(app: Express) {
+export async function mountRoutes(app: Express) {
   for (const collection of readdirSync(apiPath)) {
     const collectionPath = join(apiPath, collection);
 

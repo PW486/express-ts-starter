@@ -3,9 +3,9 @@ import cors from 'cors';
 import { Express } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import logger from '../util/logger';
+import logger from '../utils/logger';
 
-export async function mountMiddleware(app: Express) {
+export async function mountMiddlewares(app: Express) {
   app.use(cors());
   app.use(helmet());
   app.use(morgan('combined', {

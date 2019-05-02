@@ -1,5 +1,5 @@
 import winston from 'winston';
-import { NODE_ENV } from '../config/environment';
+import { NODE_ENV } from '../config/environments';
 
 const logger = winston.createLogger({
   format: winston.format.json(),
