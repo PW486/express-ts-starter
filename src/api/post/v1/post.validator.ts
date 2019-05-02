@@ -1,12 +1,17 @@
 import { check } from 'express-validator/check';
 
-export const postGetAllValidator = [];
+export const postGetAllValidator = [
+  check('limit').optional().isInt({ min: 1, max: 100 })
+    .withMessage("limit - minimum 1 and maximum 100"),
+  check('offset').optional().isInt({ min: 0 })
+    .withMessage("offset - minimum 0")
+];
 
 export const postGetByIdValidator = [
-  check('id').isLength({ min: 2 }).withMessage('id minimum length is 2')
+  check('id').exists().isInt()
 ];
 
 export const postPostValidator = [
-  check('title').isString(),
-  check('text').isString()
+  check('title').exists().withMessage("title cannot be empty"),
+  check('text').exists().withMessage("text cannot be empty")
 ];

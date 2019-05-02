@@ -13,10 +13,15 @@ export class Post {
   @Column("text")
   text: string;
 
+  @Column({
+    nullable: true
+  })
+  photo?: string;
+
   @ManyToMany(type => Category, {
     cascade: true
   })
   @JoinTable()
-  categories: Category[];
+  categories?: Category[];
 
 }

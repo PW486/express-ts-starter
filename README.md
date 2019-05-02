@@ -13,17 +13,7 @@
 
 ## TODO
 
-- [ ] API Implement (board-get/post/put/patch/delete)
-- [ ] multer validator check - filter/limits (board-post/put)
+- [ ] check postPost photo
 - [ ] TypeORM migration
-- [ ] jwt auth (user)
+- [ ] jwt user auth (401)
 - [ ] jest init
-
-
-## Handler pipe
-
-1. security issue - forbidden(403)
-2. auth (401)
-3. validator(route.validator+ multer) (400)
-4. action(404)
-5. server error(500)

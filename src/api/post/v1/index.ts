@@ -6,29 +6,27 @@ import {
   postGetByIdValidator,
   postPostValidator
 } from "./post.validator";
-import multer from 'multer';
-
-const upload = multer({ dest: 'uploads/' });
+import upload from '../../../utils/upload';
 
 const routes = [
   {
     path: "/posts",
     method: "get",
-    action: postGetAllAction,
-    validator: postGetAllValidator
+    validator: postGetAllValidator,
+    action: postGetAllAction
   },
   {
     path: "/posts/:id",
     method: "get",
-    action: postGetByIdAction,
-    validator: postGetByIdValidator
+    validator: postGetByIdValidator,
+    action: postGetByIdAction
   },
   {
     path: "/posts",
     method: "post",
-    action: postPostAction,
-    upload: upload.single('avatar'),
-    validator: postPostValidator
+    upload: upload.single('photo'),
+    validator: postPostValidator,
+    action: postPostAction
   }
 ];
 

@@ -3,13 +3,13 @@ import { getRepository } from "typeorm";
 import { Post } from "../../post.entity";
 
 export async function postPostAction(req: Request, res: Response) {
-  console.log(req.file);
-
   const postRepository = getRepository(Post);
-
-  const newPost = postRepository.create(req.body);
+  const newPost = new Post();
+  newPost.title = req.body.title;
+  newPost.text = req.body.text;
+  newPost.photo = req.file && req.file.path;
 
   await postRepository.save(newPost);
 
-  res.send(newPost);
+  res.status(201).json({ data: newPost });
 }
