@@ -1,19 +1,35 @@
-import { Router, Request, Response } from "express";
-import { routes } from "./post.route";
-import { validationResult } from 'express-validator/check';
+import { postGetAllAction } from "./action/post.getAll";
+import { postGetByIdAction } from "./action/post.getById";
+import { postPostAction } from "./action/post.post";
+import {
+  postGetAllValidator,
+  postGetByIdValidator,
+  postPostValidator
+} from "./post.validator";
+import multer from 'multer';
 
-const router: any = Router();
+const upload = multer({ dest: 'uploads/' });
 
-routes.forEach(route => {
-  router[route.method](route.path, route.upload ? route.upload : [], route.validator, (req: Request, res: Response, next: Function) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    route.action(req, res)
-      .then(() => next)
-      .catch(err => next(err));
-  });
-});
+const routes = [
+  {
+    path: "/posts",
+    method: "get",
+    action: postGetAllAction,
+    validator: postGetAllValidator
+  },
+  {
+    path: "/posts/:id",
+    method: "get",
+    action: postGetByIdAction,
+    validator: postGetByIdValidator
+  },
+  {
+    path: "/posts",
+    method: "post",
+    action: postPostAction,
+    upload: upload.single('avatar'),
+    validator: postPostValidator
+  }
+];
 
-module.exports = router;
+export = routes;

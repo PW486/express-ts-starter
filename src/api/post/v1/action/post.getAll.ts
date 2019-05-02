@@ -6,7 +6,7 @@ export async function postGetAllAction(req: Request, res: Response) {
 
   const postRepository = getRepository(Post);
 
-  const posts = await postRepository.find();
+  const postList = await postRepository.find();
 
-  res.send(posts);
+  res.send(postList);
 }

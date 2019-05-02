@@ -13,13 +13,10 @@
 
 ## TODO
 
-- [ ] api index to server.ts
-- [ ] update apis route to index.
 - [ ] directory plural
-- [ ] express-validator / class-validator
 - [ ] error handler
 - [ ] API Implement (board-get/post/put/patch/delete)
-- [ ] multer (board-post/put)
+- [ ] multer validator check - filter/limits (board-post/put)
 - [ ] TypeORM migration
 - [ ] jwt auth (user)
 - [ ] jest init
