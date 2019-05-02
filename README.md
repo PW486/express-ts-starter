@@ -13,8 +13,6 @@
 
 ## TODO
 
-- [ ] directory plural
-- [ ] error handler
 - [ ] API Implement (board-get/post/put/patch/delete)
 - [ ] multer validator check - filter/limits (board-post/put)
 - [ ] TypeORM migration
@@ -29,20 +27,3 @@
 3. validator(route.validator+ multer) (400)
 4. action(404)
 5. server error(500)
-
-## Error msg
-
-```json
-{
-  "code": 404,
-  "message": "User Not Founded",
-  "description": "user is not founded"
-}
-```
-```json
-{
-  "code": 400,
-  "message": "Bad Request",
-  "description": express-validator error message
-}
-```

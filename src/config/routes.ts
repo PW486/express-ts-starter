@@ -19,9 +19,11 @@ export async function mountRoutes(app: Express) {
             route.upload || [],
             route.validator || [],
             (req: Request, res: Response, next: Function) => {
+
               const errors = validationResult(req);
               if (!errors.isEmpty()) {
-                return res.status(400).json({ errors: errors.array() });
+                const error: any = errors.array()[0];
+                res.status(400).json({ message: error.msg });
               }
 
               route.action(req, res)
