@@ -6,6 +6,8 @@ existsSync('.env') ? config() : config({ path: '.env.example' });
 
 export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const PORT = Number(process.env.PORT) || 3000;
+export const DB_HOST = process.env.DB_HOST;
+export const DB_PASSWORD = process.env.DB_PASSWORD;
 
 export const DB_CONFIG: { [name: string]: ConnectionOptions } = {
   "development": {
@@ -40,12 +42,11 @@ export const DB_CONFIG: { [name: string]: ConnectionOptions } = {
     ]
   },
   "production": {
-    "name": "production",
     "type": "postgres",
-    "host": process.env.DB_HOST,
+    "host": DB_HOST,
     "port": 5432,
-    "username": "postgres",
-    "password": process.env.DB_PASSWORD,
+    "username": "prod",
+    "password": DB_PASSWORD,
     "database": "prod",
     "synchronize": false,
     "entities": [

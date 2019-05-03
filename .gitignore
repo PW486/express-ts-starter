@@ -85,3 +85,6 @@ typings/
 
 # tsc build directories
 dist/
+
+# multer uploads directories
+uploads/

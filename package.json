@@ -1,20 +1,14 @@
 {
   "name": "express-ts",
   "version": "0.0.1",
-  "description": "Quick Start BackEnd (Node/TypeScript/Express/TypeORM)",
+  "description": "Quick Start TypeScript Express",
   "scripts": {
-    "start": "npm run serve",
-    "build": "npm run build-ts",
-    "serve": "node dist/server.js",
+    "start": "node dist/server.js",
+    "build": "tsc",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "watch-node": "nodemon dist/server.js",
-    "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "debug": "npm run build && npm run watch-debug",
-    "serve-debug": "nodemon --inspect dist/server.js",
-    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\"",
-    "prettier": "prettier --config .prettierrc --write \"src/**/*\"",
-    "tslint": "tslint --fix -c tslint.json -p tsconfig.json"
+    "watch-node": "nodemon --inspect dist/server.js",
+    "lint": "tslint --fix -c tslint.json -p tsconfig.json"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 # express-ts
 
-> 🚀 Quick Start BackEnd (Node/TypeScript/Express/TypeORM)
+> 🚀 Quick Start TypeScript Express
 
 ## Key Points
 
@@ -13,7 +13,6 @@
 
 ## TODO
 
-- [ ] check postPost photo
-- [ ] TypeORM migration
+- [ ] express + joi
 - [ ] jwt user auth (401)
 - [ ] jest init
