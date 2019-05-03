@@ -8,8 +8,8 @@ export async function postGetAllAction(req: Request, res: Response) {
     order: {
       id: "DESC"
     },
-    skip: req.query.offset || 0,
-    take: req.query.limit || 100,
+    skip: req.query.offset,
+    take: req.query.limit,
   });
 
   res.status(200).json({ data: postList });

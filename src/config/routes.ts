@@ -1,7 +1,6 @@
 import { Express, Request, Response } from 'express';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { validationResult } from 'express-validator/check';
 
 const apiPath = join(__dirname, '../api');
 
@@ -19,12 +18,6 @@ export async function mountRoutes(app: Express) {
             route.upload || [],
             route.validator || [],
             (req: Request, res: Response, next: Function) => {
-
-              const errors = validationResult(req);
-              if (!errors.isEmpty()) {
-                const error: any = errors.array()[0];
-                res.status(400).json({ message: error.msg });
-              }
 
               route.action(req, res)
                 .then(() => next)

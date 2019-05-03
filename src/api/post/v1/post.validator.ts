@@ -1,17 +1,21 @@
-import { check } from 'express-validator/check';
+import { celebrate, Joi } from 'celebrate';
 
-export const postGetAllValidator = [
-  check('limit').optional().isInt({ min: 1, max: 100 })
-    .withMessage("limit - minimum 1 and maximum 100"),
-  check('offset').optional().isInt({ min: 0 })
-    .withMessage("offset - minimum 0")
-];
+export const postGetAllValidator = celebrate({
+  query: {
+    limit: Joi.number().integer().min(1).max(100).default(10),
+    offset: Joi.number().integer().min(0).default(0)
+  }
+});
 
-export const postGetByIdValidator = [
-  check('id').exists().isInt()
-];
+export const postGetByIdValidator = celebrate({
+  params: {
+    id: Joi.number().integer().positive().required()
+  }
+});
 
-export const postPostValidator = [
-  check('title').exists().withMessage("title cannot be empty"),
-  check('text').exists().withMessage("text cannot be empty")
-];
+export const postPostValidator = celebrate({
+  body: {
+    title: Joi.string().max(50).required(),
+    text: Joi.string().required()
+  }
+});

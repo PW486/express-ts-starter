@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import express from 'express';
 import { Express, Request, Response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -26,4 +27,6 @@ export async function mountMiddlewares(app: Express) {
       },
     },
   }));
+
+  app.use('/uploads', express.static('uploads'));
 }
