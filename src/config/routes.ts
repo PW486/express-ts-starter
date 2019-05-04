@@ -3,7 +3,7 @@ import { readdirSync } from 'fs';
 import { join } from 'path';
 import jwt from 'express-jwt';
 import guardFactory from 'express-jwt-permissions';
-import { SECRET_KEY } from './environments';
+import { JWT_SECRET } from './environments';
 
 const apiPath = join(__dirname, '../api');
 const guard = guardFactory({});
@@ -19,7 +19,7 @@ export async function mountRoutes(app: Express) {
         for (const route of routes) {
           app[route.method](
             join('/', version, route.path),
-            route.auth ? jwt({ secret: SECRET_KEY }) : [],
+            route.auth ? jwt({ secret: JWT_SECRET }) : [],
             route.permission ? guard.check(route.permission) : [],
             route.upload || [],
             route.validator || [],

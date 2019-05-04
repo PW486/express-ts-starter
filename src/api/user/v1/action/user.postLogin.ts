@@ -3,7 +3,7 @@ import { getRepository } from "typeorm";
 import { User } from "../../user.entity";
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
-import { SECRET_KEY } from '../../../../config/environments';
+import { JWT_SECRET } from '../../../../config/environments';
 
 export async function postLoginAction(req: Request, res: Response) {
   const email = req.body.email;
@@ -17,7 +17,7 @@ export async function postLoginAction(req: Request, res: Response) {
   if (!result) return res.status(400).json({ message: 'not valid email or password' });
 
   const expiresIn = 24 * 60 * 60;
-  const accessToken = jwt.sign({ id: user.id, permissions: ['admin'] }, SECRET_KEY, {
+  const accessToken = jwt.sign({ id: user.id, permissions: user.permissions }, JWT_SECRET, {
     expiresIn: expiresIn
   });
   res.status(200).json({ "user": user, "access_token": accessToken, "expires_in": expiresIn });
