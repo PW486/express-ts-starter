@@ -8,6 +8,7 @@ export const NODE_ENV = process.env.NODE_ENV || 'development';
 export const PORT = Number(process.env.PORT) || 3000;
 export const DB_HOST = process.env.DB_HOST;
 export const DB_PASSWORD = process.env.DB_PASSWORD;
+export const SECRET_KEY = process.env.SECRET_KEY || 'secret';
 
 export const DB_CONFIG: { [name: string]: ConnectionOptions } = {
   "development": {

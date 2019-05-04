@@ -15,9 +15,13 @@ async function server() {
   await mountRoutes(app);
 
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    isCelebrate(err) ?
-      res.status(400).json({ message: err.message }) :
+    if (err.name === 'UnauthorizedError') {
+      res.status(401).json({ message: err.message });
+    } else if (isCelebrate(err)) {
+      res.status(400).json({ message: err.message });
+    } else {
       res.status(500).json({ message: err.message });
+    }
   })
 
   app.listen(PORT);

@@ -12,7 +12,6 @@
 
 ## TODO
 
-- [ ] jwt user auth (401)
 - [ ] jest init
 - [ ] refactoring & cleaning & write readme
 
