@@ -17,7 +17,7 @@ export async function postPostAction(req: Request, res: Response) {
     .into(Post)
     .values({
       title: body.title,
-      text: body.title,
+      text: body.text,
       photo: req.file && req.file.path,
       user: { id: req.user.id } as User
     })

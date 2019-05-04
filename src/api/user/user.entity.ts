@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany } from "typeorm";
 import { Post } from "../post/post.entity";
 import CommonEntity from "../common/entity";
 
 @Entity('user')
 export class User extends CommonEntity {
 
-  @Column('text')
+  @Column()
   name: string;
 
   @Column({ type: 'text', unique: true })

@@ -9,6 +9,7 @@ export const PORT = Number(process.env.PORT) || 3000;
 export const DB_HOST = process.env.DB_HOST;
 export const DB_PASSWORD = process.env.DB_PASSWORD;
 export const JWT_SECRET = process.env.JWT_SECRET || 'jwtsecret';
+export const JWT_EXPIRE = Number(process.env.JWT_EXPIRE) || 24 * 60 * 60;
 
 export const DB_CONFIG: { [name: string]: ConnectionOptions } = {
   "development": {

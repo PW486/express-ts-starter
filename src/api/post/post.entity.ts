@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, ManyToOne } from "typeorm";
+import { Entity, UpdateDateColumn, Column, ManyToOne } from "typeorm";
 import { User } from "../user/user.entity";
 import CommonEntity from "../common/entity";
 
