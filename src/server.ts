@@ -1,30 +1,6 @@
-import "reflect-metadata";
-import express from 'express';
-import { Request, Response, NextFunction } from 'express';
-import { createConnection } from "typeorm";
-import { isCelebrate } from 'celebrate';
-import { NODE_ENV, PORT, DB_CONFIG } from './config/environments';
-import { mountMiddlewares } from './config/middlewares';
-import { mountRoutes } from './config/routes';
+import app from "./app";
+import { PORT } from './config/environments';
 
-async function server() {
-  await createConnection(DB_CONFIG[NODE_ENV]);
+const server = app.listen(PORT);
 
-  const app = express();
-  await mountMiddlewares(app);
-  await mountRoutes(app);
-
-  app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    if (err.name === 'UnauthorizedError') {
-      res.status(401).json({ message: err.message });
-    } else if (isCelebrate(err)) {
-      res.status(400).json({ message: err.message });
-    } else {
-      res.status(500).json({ message: err.message });
-    }
-  })
-
-  app.listen(PORT);
-}
-
-server();
+export default server;
