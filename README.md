@@ -1,4 +1,4 @@
-# express-ts
+# express-ts-starter
 
 > 🚀 Quick Start TypeScript Express
 
@@ -10,10 +10,10 @@
 4. Check outdated packages `npm i -g npm-check-updates`
 5. Check security vulnerabilities `npm i -g snyk`
 
-## TODO
+## refactoring & cleaning & writing readme
 
-- [ ] jest init
-- [ ] refactoring & cleaning & write readme
+1. action -> handler directory
+2. function action directory
 
 ## Generate Migration
 
