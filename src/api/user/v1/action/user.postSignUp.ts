@@ -17,7 +17,7 @@ export async function postSignUpAction(req: Request, res: Response) {
   const email = body.email;
   const password = await bcrypt.hash(body.password, 10);
 
-  const newUser = await getRepository(User).create({ name, email, password, permissions: ['defalt'] });
+  const newUser = await getRepository(User).create({ name, email, password, permissions: ['default'] });
   const user = await getRepository(User).save(newUser);
 
   const accessToken = await getTokenById(user.id);
