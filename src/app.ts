@@ -1,15 +1,11 @@
-import "reflect-metadata";
 import express from 'express';
 import { Request, Response, NextFunction } from 'express';
-import { createConnection } from "typeorm";
 import { isCelebrate } from 'celebrate';
-import { NODE_ENV, DB_CONFIG } from './config/environments';
 import { mountMiddlewares } from './config/middlewares';
 import { mountRoutes } from './config/routes';
 
-createConnection(DB_CONFIG[NODE_ENV]);
-
 const app = express();
+
 mountMiddlewares(app);
 mountRoutes(app);
 

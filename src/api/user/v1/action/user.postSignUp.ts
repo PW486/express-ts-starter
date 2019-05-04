@@ -15,9 +15,13 @@ export async function postSignUpAction(req: Request, res: Response) {
   const body: PostSignUpBody = req.body
   const name = body.name;
   const email = body.email;
+
+  const oldUser = await getRepository(User).findOne({ email });
+  if (oldUser) return res.status(400).json({ message: 'email already in use' });
+
   const password = await bcrypt.hash(body.password, 10);
 
-  const newUser = getRepository(User).create({ name, email, password, permissions: ['default'] });
+  const newUser = getRepository(User).create({ name, email, password, permissions: ['admin'] });
   const user = await getRepository(User).save(newUser);
 
   const accessToken = await getTokenById(user.id);
