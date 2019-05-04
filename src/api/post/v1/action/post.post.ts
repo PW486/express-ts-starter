@@ -1,15 +1,27 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
+import { getConnection } from "typeorm";
 import { Post } from "../../post.entity";
+import { User } from "../../../user/user.entity";
+
+interface PostPostBody {
+  title: string,
+  text: string
+}
 
 export async function postPostAction(req: Request, res: Response) {
-  const postRepository = getRepository(Post);
-  const newPost = new Post();
-  newPost.title = req.body.title;
-  newPost.text = req.body.text;
-  newPost.photo = req.file && req.file.path;
+  const body: PostPostBody = req.body;
 
-  await postRepository.save(newPost);
+  const result = await getConnection()
+    .createQueryBuilder()
+    .insert()
+    .into(Post)
+    .values({
+      title: body.title,
+      text: body.title,
+      photo: req.file && req.file.path,
+      user: { id: req.user.id } as User
+    })
+    .execute();
 
-  res.status(201).json({ data: newPost });
+  res.status(201).json({ data: result.identifiers[0] });
 }

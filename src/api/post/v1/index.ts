@@ -29,7 +29,7 @@ const routes = [
     path: "/posts",
     method: "post",
     auth: true,
-    permission: [['admin'], ['default']],
+    permission: ['admin'],
     upload: upload.single('photo'),
     validator: postPostValidator,
     action: postPostAction
