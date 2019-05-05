@@ -1,4 +1,6 @@
 {
+  "tslint.autoFixOnSave": true,
+  "prettier.tslintIntegration": true,
   "editor.formatOnSave": true,
-  "tslint.autoFixOnSave": true
+  "javascript.suggestionActions.enabled": false
 }

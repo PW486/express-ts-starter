@@ -1,22 +1,21 @@
-import { Entity, Column, OneToMany } from "typeorm";
-import { Post } from "../post/post.entity";
-import CommonEntity from "../common/entity";
+import { Column, Entity, OneToMany } from 'typeorm';
+import CommonEntity from '../common/entity';
+import { Post } from '../post/post.entity';
 
 @Entity('user')
 export class User extends CommonEntity {
-
   @Column()
-  name: string;
+  public name: string;
 
   @Column({ type: 'text', unique: true })
-  email: string;
+  public email: string;
 
   @Column({ type: 'text', array: true, nullable: true })
-  permissions?: string[]
+  public permissions?: string[];
 
   @Column('text')
-  password: string;
+  public password: string;
 
   @OneToMany(type => Post, post => post.user)
-  posts: Post[];
+  public posts: Post[];
 }

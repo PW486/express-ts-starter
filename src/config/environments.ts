@@ -12,50 +12,37 @@ export const JWT_SECRET = process.env.JWT_SECRET || 'jwtsecret';
 export const JWT_EXPIRE = Number(process.env.JWT_EXPIRE) || 24 * 60 * 60;
 
 export const DB_CONFIG: { [name: string]: ConnectionOptions } = {
-  "development": {
-    "type": "postgres",
-    "host": "localhost",
-    "port": 5432,
-    "username": "dev",
-    "password": "dev",
-    "database": "dev",
-    "synchronize": true,
-    "entities": [
-      "dist/api/**/*.entity.js"
-    ],
-    "logging": [
-      "error",
-      "query"
-    ]
+  development: {
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'dev',
+    password: 'dev',
+    database: 'dev',
+    synchronize: true,
+    entities: ['dist/api/**/*.entity.js'],
+    logging: ['error', 'query'],
   },
-  "test": {
-    "type": "postgres",
-    "host": "localhost",
-    "port": 5432,
-    "username": "test",
-    "password": "test",
-    "database": "test",
-    "synchronize": true,
-    "entities": [
-      "dist/api/**/*.entity.js"
-    ],
-    "logging": [
-      "error"
-    ]
+  test: {
+    type: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    username: 'test',
+    password: 'test',
+    database: 'test',
+    synchronize: true,
+    entities: ['dist/api/**/*.entity.js'],
+    logging: ['error'],
   },
-  "production": {
-    "type": "postgres",
-    "host": DB_HOST,
-    "port": 5432,
-    "username": "prod",
-    "password": DB_PASSWORD,
-    "database": "prod",
-    "synchronize": false,
-    "entities": [
-      "dist/api/**/*.entity.js"
-    ],
-    "logging": [
-      "error"
-    ]
-  }
+  production: {
+    type: 'postgres',
+    host: DB_HOST,
+    port: 5432,
+    username: 'prod',
+    password: DB_PASSWORD,
+    database: 'prod',
+    synchronize: false,
+    entities: ['dist/api/**/*.entity.js'],
+    logging: ['error'],
+  },
 };

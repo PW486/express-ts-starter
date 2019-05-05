@@ -10,10 +10,7 @@
 4. Check outdated packages `npm i -g npm-check-updates`
 5. Check security vulnerabilities `npm i -g snyk`
 
-## refactoring & cleaning & writing readme
-
-1. action -> handler directory
-2. function action directory
+## Writing readme
 
 ## Generate Migration
 

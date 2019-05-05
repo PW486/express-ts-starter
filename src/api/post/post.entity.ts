@@ -1,22 +1,21 @@
-import { Entity, UpdateDateColumn, Column, ManyToOne } from "typeorm";
-import { User } from "../user/user.entity";
-import CommonEntity from "../common/entity";
+import { Column, Entity, ManyToOne, UpdateDateColumn } from 'typeorm';
+import CommonEntity from '../common/entity';
+import { User } from '../user/user.entity';
 
 @Entity('post')
 export class Post extends CommonEntity {
-
-  @UpdateDateColumn({ type: "timestamptz" })
-  updatedAt: Date;
+  @UpdateDateColumn({ type: 'timestamptz' })
+  public updatedAt: Date;
 
   @Column()
-  title: string;
+  public title: string;
 
   @Column('text')
-  text: string;
+  public text: string;
 
   @Column({ nullable: true })
-  photo?: string;
+  public photo?: string;
 
   @ManyToOne(type => User, user => user.posts, { nullable: false })
-  user: User;
+  public user: User;
 }

@@ -11,22 +11,26 @@ export async function mountMiddlewares(app: Express) {
   app.use(helmet());
   app.use(bodyParser.json());
 
-  app.use(morgan('combined', {
-    skip: (req: Request, res: Response) => res.statusCode < 400,
-    stream: {
-      write(text: string) {
-        logger.error(text);
+  app.use(
+    morgan('combined', {
+      skip: (req: Request, res: Response) => res.statusCode < 400,
+      stream: {
+        write(text: string) {
+          logger.error(text);
+        },
       },
-    },
-  }))
-  app.use(morgan('combined', {
-    skip: (req: Request, res: Response) => res.statusCode > 399,
-    stream: {
-      write(text: string) {
-        logger.info(text);
+    }),
+  );
+  app.use(
+    morgan('combined', {
+      skip: (req: Request, res: Response) => res.statusCode > 399,
+      stream: {
+        write(text: string) {
+          logger.info(text);
+        },
       },
-    },
-  }));
+    }),
+  );
 
   app.use('/uploads', express.static('uploads'));
 }

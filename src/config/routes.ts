@@ -1,8 +1,9 @@
-import { Express, Request, Response } from 'express';
-import { readdirSync } from 'fs';
-import { join } from 'path';
+import { Express, NextFunction, Request, Response } from 'express';
 import jwt from 'express-jwt';
 import guardFactory from 'express-jwt-permissions';
+import { readdirSync } from 'fs';
+import { join } from 'path';
+import CommonRoute from '../api/common/route';
 import { JWT_SECRET } from './environments';
 
 const apiPath = join(__dirname, '../api');
@@ -14,7 +15,7 @@ export async function mountRoutes(app: Express) {
 
     for (const version of readdirSync(collectionPath)) {
       if (/v[0-9]+$/.test(version)) {
-        const routes = require(join(collectionPath, version));
+        const routes: CommonRoute[] = require(join(collectionPath, version));
 
         for (const route of routes) {
           app[route.method](
@@ -23,14 +24,14 @@ export async function mountRoutes(app: Express) {
             route.permission ? guard.check(route.permission) : [],
             route.upload || [],
             route.validator || [],
-            (req: Request, res: Response, next: Function) => {
-
-              route.action(req, res)
+            (req: Request, res: Response, next: NextFunction) => {
+              route
+                .handler(req, res)
                 .then(() => next)
-                .catch(err => next(err));
-            }
+                .catch((err: any) => next(err));
+            },
           );
-        };
+        }
       }
     }
   }

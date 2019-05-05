@@ -1,10 +1,11 @@
 import request from 'supertest';
+import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';
-import { createConnection } from "typeorm";
-import { NODE_ENV, DB_CONFIG } from '../../../config/environments';
 import app from '../../../app';
+import { DB_CONFIG, NODE_ENV } from '../../../config/environments';
 
-let token, postId;
+let token: string;
+let postId: number;
 const random = v4();
 
 describe('Post API v1', () => {
@@ -14,7 +15,7 @@ describe('Post API v1', () => {
     const res = await request(app)
       .post('/v1/signup')
       .set('Content-Type', 'application/json')
-      .send({ name: 'test', email: `${random}@test.com`, password: 'test' })
+      .send({ name: 'test', email: `${random}@test.com`, password: 'test' });
 
     token = res.body.access_token;
   });
@@ -25,7 +26,7 @@ describe('Post API v1', () => {
         .get('/v1/posts')
         .set('Authorization', `Bearer ${token}`);
       expect(res.status).toBe(200);
-    })
+    });
   });
 
   describe('POST /v1/posts', () => {
@@ -37,8 +38,8 @@ describe('Post API v1', () => {
         .send({ title: 'title', text: 'text' });
       expect(res.status).toBe(201);
 
-      postId = res.body.data.id
-    })
+      postId = res.body.data.id;
+    });
   });
 
   describe('GET /v1/posts/:id', () => {
@@ -47,6 +48,6 @@ describe('Post API v1', () => {
         .get(`/v1/posts/${postId}`)
         .set('Authorization', `Bearer ${token}`);
       expect(res.status).toBe(200);
-    })
+    });
   });
 });

@@ -1,10 +1,10 @@
 import request from 'supertest';
+import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';
-import { createConnection } from "typeorm";
-import { NODE_ENV, DB_CONFIG } from '../../../config/environments';
 import app from '../../../app';
+import { DB_CONFIG, NODE_ENV } from '../../../config/environments';
 
-let token;
+let token: string;
 const random = v4();
 
 describe('User API v1', () => {
@@ -17,11 +17,11 @@ describe('User API v1', () => {
       const res = await request(app)
         .post('/v1/signup')
         .set('Content-Type', 'application/json')
-        .send({ name: 'test', email: `${random}@test.com`, password: 'test' })
+        .send({ name: 'test', email: `${random}@test.com`, password: 'test' });
       expect(res.status).toBe(201);
 
       token = res.body.access_token;
-    })
+    });
   });
 
   describe('POST /v1/signin', () => {
@@ -29,9 +29,9 @@ describe('User API v1', () => {
       const res = await request(app)
         .post('/v1/signin')
         .set('Content-Type', 'application/json')
-        .send({ email: `${random}@test.com`, password: 'test' })
+        .send({ email: `${random}@test.com`, password: 'test' });
       expect(res.status).toBe(200);
-    })
+    });
   });
 
   describe('GET /v1/token', () => {
@@ -40,6 +40,6 @@ describe('User API v1', () => {
         .get('/v1/token')
         .set('Authorization', `Bearer ${token}`);
       expect(res.status).toBe(200);
-    })
+    });
   });
 });

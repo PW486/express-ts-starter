@@ -1,37 +1,33 @@
-import { postGetAllAction } from "./action/post.getAll";
-import { postGetByIdAction } from "./action/post.getById";
-import { postPostAction } from "./action/post.post";
-import {
-  postGetAllValidator,
-  postGetByIdValidator,
-  postPostValidator
-} from "./post.validator";
 import upload from '../../../utils/upload';
 import CommonRoute from '../../common/route';
+import { postGetAllHandler } from './handler/post.getAll';
+import { postGetByIdHandler } from './handler/post.getById';
+import { postPostHandler } from './handler/post.post';
+import { postGetAllValidator, postGetByIdValidator, postPostValidator } from './post.validator';
 
 export const routes: CommonRoute[] = [
   {
-    path: "/posts",
-    method: "get",
+    path: '/posts',
+    method: 'get',
     auth: true,
     validator: postGetAllValidator,
-    action: postGetAllAction
+    handler: postGetAllHandler,
   },
   {
-    path: "/posts/:id",
-    method: "get",
+    path: '/posts/:id',
+    method: 'get',
     auth: true,
     permission: [['admin'], ['default']],
     validator: postGetByIdValidator,
-    action: postGetByIdAction
+    handler: postGetByIdHandler,
   },
   {
-    path: "/posts",
-    method: "post",
+    path: '/posts',
+    method: 'post',
     auth: true,
     permission: ['admin'],
     upload: upload.single('photo'),
     validator: postPostValidator,
-    action: postPostAction
-  }
+    handler: postPostHandler,
+  },
 ];

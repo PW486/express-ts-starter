@@ -1,10 +1,9 @@
-import { PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { CreateDateColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 export default abstract class CommonEntity {
-
   @PrimaryGeneratedColumn()
-  id: number;
+  public id: number;
 
-  @CreateDateColumn({ type: "timestamptz" })
-  createdAt: Date;
+  @CreateDateColumn({ type: 'timestamptz' })
+  public createdAt: Date;
 }

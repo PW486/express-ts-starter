@@ -3,13 +3,13 @@ import { extname } from 'path';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/')
+    cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + extname(file.originalname))
-  }
-})
+    cb(null, file.fieldname + '-' + Date.now() + extname(file.originalname));
+  },
+});
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 export default upload;

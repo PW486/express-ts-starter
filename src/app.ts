@@ -1,6 +1,6 @@
-import express from 'express';
-import { Request, Response, NextFunction } from 'express';
 import { isCelebrate } from 'celebrate';
+import express from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { mountMiddlewares } from './config/middlewares';
 import { mountRoutes } from './config/routes';
 
@@ -17,6 +17,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   } else {
     res.status(500).json({ message: err.message });
   }
-})
+});
 
 export default app;
