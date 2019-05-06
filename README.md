@@ -9,28 +9,28 @@ This is initial structure of a project. If you are trying to start a backend pro
 
 ### Clone & Install Dependencies
 ```
-git clone https://github.com/PW486/express-ts-starter.git
-npm install
-npm run watch
+> git clone https://github.com/PW486/express-ts-starter.git
+> npm install
+> npm run watch
 ```
 
 ### Testing
 ```
-npm run test
+> npm run test
 ```
 
 ### Prepare Deploying
 ```
-cp .env.example .env
-vi .env
-NODE_ENV=production
-npm run build
+> cp .env.example .env
+> vi .env
+> NODE_ENV=production
+> npm run build
 ```
 
 ## Developing
 - Remove local branches deleted on remote server
   ```
-  git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
+  > git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
   ```
 - Keep the linter and formatter rules
 - Check unused, outdated states of dependencies : **`depcheck` `npm-check-updates`**
@@ -61,7 +61,7 @@ npm run build
   method: 'post',
   auth: true,
   permission: ['admin'],
-  upload: upload.single('photo'),
+  upload: imageUpload.single('photo'),
   validator: postPostValidator,
   handler: postPostHandler,
 }

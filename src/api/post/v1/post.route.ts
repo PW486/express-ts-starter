@@ -1,4 +1,4 @@
-import upload from '../../../utils/upload';
+import { imageUpload } from '../../../utils/upload';
 import CommonRoute from '../../common/route';
 import { postGetAllHandler } from './handler/post.getAll';
 import { postGetByIdHandler } from './handler/post.getById';
@@ -26,7 +26,7 @@ export const routes: CommonRoute[] = [
     method: 'post',
     auth: true,
     permission: ['admin'],
-    upload: upload.single('photo'),
+    upload: imageUpload.single('photo'),
     validator: postPostValidator,
     handler: postPostHandler,
   },

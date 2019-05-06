@@ -8,14 +8,14 @@ export const routes: CommonRoute[] = [
   {
     path: '/signup',
     method: 'post',
-    handler: postSignUpHandler,
     validator: postSignUpValidator,
+    handler: postSignUpHandler,
   },
   {
     path: '/signin',
     method: 'post',
-    handler: postSignInHandler,
     validator: postSignInValidator,
+    handler: postSignInHandler,
   },
   {
     path: '/token',

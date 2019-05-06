@@ -1,4 +1,3 @@
-import { isCelebrate } from 'celebrate';
 import express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import { mountMiddlewares } from './config/middlewares';
@@ -12,7 +11,9 @@ mountRoutes(app);
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err.name === 'UnauthorizedError') {
     res.status(401).json({ message: err.message });
-  } else if (isCelebrate(err)) {
+  } else if (err.name === 'MulterError') {
+    res.status(400).json({ message: err.message });
+  } else if (err.name === 'ValidationError') {
     res.status(400).json({ message: err.message });
   } else {
     res.status(500).json({ message: err.message });

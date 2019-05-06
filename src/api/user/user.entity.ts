@@ -10,7 +10,7 @@ export class User extends CommonEntity {
   @Column({ type: 'text', unique: true })
   public email: string;
 
-  @Column({ type: 'text', array: true, nullable: true })
+  @Column({ type: 'text', nullable: true, array: true })
   public permissions?: string[];
 
   @Column('text')
