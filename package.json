@@ -1,6 +1,6 @@
 {
   "name": "express-ts-starter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Quick Start TypeScript Express",
   "scripts": {
     "start": "node dist/server.js",
@@ -17,17 +17,17 @@
     "type": "git",
     "url": "https://github.com/PW486/express-ts-starter.git"
   },
-  "author": "PW486",
+  "author": "DONGGEON LIM <ooqwe486@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "celebrate": "^9.1.0",
+    "celebrate": "^10.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
-    "express-jwt-permissions": "^1.3.0",
-    "helmet": "^3.17.0",
+    "express-jwt-permissions": "^1.3.1",
+    "helmet": "^3.18.0",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
