@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { getRepository } from 'typeorm';
 import { User } from '../../../user/user.entity';
 import { Post } from '../../post.entity';
@@ -8,7 +8,7 @@ interface PostPostBody {
   text: string;
 }
 
-export async function postPostHandler(req: Request, res: Response) {
+export async function postPostHandler(req: Request, res: Response, next: NextFunction) {
   const body: PostPostBody = req.body;
 
   const newPost = getRepository(Post).create({

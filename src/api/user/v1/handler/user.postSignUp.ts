@@ -1,9 +1,10 @@
 import bcrypt from 'bcrypt';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { getRepository } from 'typeorm';
 import { JWT_EXPIRE } from '../../../../config/environments';
 import { User } from '../../user.entity';
 import { getTokenByIdAction } from '../action/user.getTokenById';
+import sendError from '../../../../utils/error';
 
 interface PostSignUpBody {
   name: string;
@@ -11,15 +12,13 @@ interface PostSignUpBody {
   password: string;
 }
 
-export async function postSignUpHandler(req: Request, res: Response) {
+export async function postSignUpHandler(req: Request, res: Response, next: NextFunction) {
   const body: PostSignUpBody = req.body;
   const name = body.name;
   const email = body.email;
 
   const oldUser = await getRepository(User).findOne({ email });
-  if (oldUser) {
-    return res.status(400).json({ message: 'email already in use' });
-  }
+  if (oldUser) return sendError(400, 'email already in use', next);
 
   const password = await bcrypt.hash(body.password, 10);
 

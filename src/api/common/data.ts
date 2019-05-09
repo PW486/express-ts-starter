@@ -1,8 +1,8 @@
-export default interface CommonQuery {
+export interface CommonQuery {
   offset: number;
   limit: number;
 }
 
-export default interface CommonParams {
+export interface CommonParams {
   id: number;
 }

@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "removeComments": true,
     "moduleResolution": "node",
     "outDir": "dist",
     "baseUrl": ".",

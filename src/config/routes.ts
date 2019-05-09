@@ -26,9 +26,9 @@ export async function mountRoutes(app: Express) {
             route.validator || [],
             (req: Request, res: Response, next: NextFunction) => {
               route
-                .handler(req, res)
+                .handler(req, res, next)
                 .then(() => next)
-                .catch((err: any) => next(err));
+                .catch(err => next(err));
             },
           );
         }

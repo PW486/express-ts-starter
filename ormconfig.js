@@ -8,8 +8,8 @@ module.exports = {
   password: DB_PASSWORD,
   database: 'prod',
   entities: ['dist/api/**/*.entity.js'],
-  migrations: ['dist/migration/*.js'],
+  migrations: ['dist/migrations/*.js'],
   cli: {
-    migrationsDir: 'src/migration',
+    migrationsDir: 'src/migrations',
   },
 };

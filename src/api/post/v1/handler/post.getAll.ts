@@ -1,13 +1,13 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import { getConnection } from 'typeorm';
-import CommonQuery from '../../../common/data';
+import { CommonQuery } from '../../../common/data';
 import { Post } from '../../post.entity';
 
 interface PostGetAllQuery extends CommonQuery {
   search?: string;
 }
 
-export async function postGetAllHandler(req: Request, res: Response) {
+export async function postGetAllHandler(req: Request, res: Response, next: NextFunction) {
   const query: PostGetAllQuery = req.query;
 
   const postList = await getConnection()
