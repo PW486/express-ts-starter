@@ -9,7 +9,7 @@ import { JWT_SECRET } from './environments';
 const apiPath = join(__dirname, '../api');
 const guard = guardFactory({});
 
-export async function mountRoutes(app: Express) {
+export function mountRoutes(app: Express) {
   for (const collection of readdirSync(apiPath)) {
     const collectionPath = join(apiPath, collection);
 

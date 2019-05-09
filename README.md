@@ -48,12 +48,6 @@ This is initial structure of a project. If you are trying to start a backend pro
 | Linter         | **TSLint**     |
 | Formatter      | **Prettier**   |
 
-### Generating Migration
-- Auto generate : **`typeorm migration:generate -n <migration-name>`**
-- Create empty file : **`typeorm migration:create -n <migration-name>`**
-- Run migration : **`typeorm migration:run`**
-- Revert migration : **`typeorm migration:revert`**
-
 ### Routing Example
 ```ts
 {
@@ -68,15 +62,17 @@ This is initial structure of a project. If you are trying to start a backend pro
 ```
 Manage all options in one object. auth, permission, upload, validator and handler are processed in order.
 
+### Generating Migration
+- Auto generate : **`typeorm migration:generate -n <migration-name>`**
+- Create empty file : **`typeorm migration:create -n <migration-name>`**
+- Run migration : **`typeorm migration:run`**
+- Revert migration : **`typeorm migration:revert`**
+
 ## Project Structure
 
 ### API Directory
 ```
 api
-├── common
-|  ├── data.ts
-|  ├── entity.ts
-|  └── route.ts
 ├── post
 |  ├── post.entity.ts
 |  └── v1
@@ -103,7 +99,7 @@ api
    |  └── user.validator.ts
    └── v2
 ```
-There are collection directories and a common directory within API. Common directory contains the declares used by most collections. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.
+There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.
 
 ### Other Directories
 ```
@@ -112,15 +108,20 @@ src
 ├── server.ts
 ├── config
 |  ├── environments.ts
+|  ├── errorHandlers.ts
 |  ├── middlewares.ts
 |  └── routes.ts
-├── migration
+├── migrations
 |  └── <timestamp>-<migraion-name>.ts
 ├── types
-|  ├── json.d.ts
+|  ├── data.d.ts
+|  ├── error.d.ts
+|  ├── route.d.ts
 |  └── user.d.ts
 └── utils
+   ├── entity.ts
+   ├── error.ts
    ├── logger.ts
    └── upload.ts
 ```
-Other directories contain app configuration, db migraion, typescript declaration and utility files.
+Other directories contain app configuration, db migraion, typescript declaration and utility files. Config is a directory of files to set up before listening the express app, but utils directory contains utilities used in various places. And types directory contains the declares used by most collections.

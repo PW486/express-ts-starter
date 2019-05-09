@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import logger from '../utils/logger';
 
-export async function mountMiddlewares(app: Express) {
+export function mountMiddlewares(app: Express) {
   app.use(cors());
   app.use(helmet());
   app.use(bodyParser.json());
