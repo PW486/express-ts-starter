@@ -1,4 +1,4 @@
-import CommonRoute from '../../common/route';
+import { CommonRoute } from 'route';
 import { getTokenHandler } from './handler/user.getToken';
 import { postSignInHandler } from './handler/user.postSignIn';
 import { postSignUpHandler } from './handler/user.postSignUp';

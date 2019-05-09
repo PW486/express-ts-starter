@@ -17,10 +17,10 @@ export async function postSignInHandler(req: Request, res: Response, next: NextF
   const password = body.password;
 
   const user = await getRepository(User).findOne({ email });
-  if (!user) return sendError(400, 'email or password not valid', next);
+  if (!user) return sendError(400, 'invalid email or password', next);
 
   const result = await bcrypt.compare(password, user.password);
-  if (!result) return sendError(400, 'email or password not valid', next);
+  if (!result) return sendError(400, 'invalid email or password', next);
 
   const accessToken = await getTokenByIdAction(user.id);
 

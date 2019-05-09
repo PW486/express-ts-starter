@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany } from 'typeorm';
-import { CommonEntity } from '../common/entity';
+import { CommonEntity } from '../../utils/entity';
 import { Post } from '../post/post.entity';
 
 @Entity('user')

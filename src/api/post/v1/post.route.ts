@@ -1,5 +1,5 @@
 import { imageUpload } from '../../../utils/upload';
-import CommonRoute from '../../common/route';
+import { CommonRoute } from 'route';
 import { postGetAllHandler } from './handler/post.getAll';
 import { postGetByIdHandler } from './handler/post.getById';
 import { postPostHandler } from './handler/post.post';

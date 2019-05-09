@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 
-export default interface CommonRoute {
+interface CommonRoute {
   path: string;
   method: string;
   auth?: boolean;

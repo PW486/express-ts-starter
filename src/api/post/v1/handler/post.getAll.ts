@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import { getConnection } from 'typeorm';
-import { CommonQuery } from '../../../common/data';
 import { Post } from '../../post.entity';
 
 interface PostGetAllQuery extends CommonQuery {

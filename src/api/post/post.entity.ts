@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, UpdateDateColumn } from 'typeorm';
-import { CommonEntity } from '../common/entity';
+import { CommonEntity } from '../../utils/entity';
 import { User } from '../user/user.entity';
 
 @Entity('post')
