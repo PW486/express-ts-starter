@@ -1,9 +1,8 @@
 {
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rules": {
-    "object-literal-sort-keys": {
-      "options": "match-declaration-order"
-    },
-    "interface-name": false
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "curly": [true, "ignore-same-line"]
   }
 }

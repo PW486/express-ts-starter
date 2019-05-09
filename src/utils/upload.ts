@@ -26,7 +26,7 @@ function multerError(message: string): Error {
 export const imageUpload = multer({
   storage,
   limits: {
-    fileSize: FILE_IMAGE_SIZE
+    fileSize: FILE_IMAGE_SIZE,
   },
   fileFilter: (req, file, cb) => {
     const filetypes = /jpg|jpeg|png|gif/;
@@ -38,5 +38,5 @@ export const imageUpload = multer({
     } else {
       cb(multerError('Only following filetypes can be uploaded - ' + filetypes), false);
     }
-  }
+  },
 });

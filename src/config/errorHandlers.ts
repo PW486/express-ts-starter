@@ -1,5 +1,5 @@
-import { Express, NextFunction, Request, Response } from 'express';
 import { isCelebrate } from 'celebrate';
+import { Express, NextFunction, Request, Response } from 'express';
 import sendError from '../utils/error';
 
 export async function mountErrorHandlers(app: Express) {
@@ -8,7 +8,7 @@ export async function mountErrorHandlers(app: Express) {
   });
 
   app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    if(!err.statusCode) {
+    if (!err.statusCode) {
       if (err.name === 'UnauthorizedError') {
         err.statusCode = 401;
       } else if (err.name === 'MulterError') {

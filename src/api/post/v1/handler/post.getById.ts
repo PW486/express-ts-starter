@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import { Post } from '../../post.entity';
 import sendError from '../../../../utils/error';
+import { Post } from '../../post.entity';
 
 export async function postGetByIdHandler(req: Request, res: Response, next: NextFunction) {
   const params: CommonParams = req.params;

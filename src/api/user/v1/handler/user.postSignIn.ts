@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt';
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import { JWT_EXPIRE } from '../../../../config/environments';
+import sendError from '../../../../utils/error';
 import { User } from '../../user.entity';
 import { getTokenByIdAction } from '../action/user.getTokenById';
-import sendError from '../../../../utils/error';
 
 interface PostSignInBody {
   email: string;
