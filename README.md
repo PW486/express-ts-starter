@@ -5,9 +5,11 @@
 This is initial structure of a project. If you are trying to start a backend project with express, this kit is possible to minimize troublesome work.
 
 ## Getting Started
+
 - For each environment, should edit the database options of **`src/config/environments.ts` `ormconfig.js`** files.
 
 ### Clone & Install Dependencies
+
 ```
 > git clone https://github.com/PW486/express-ts-starter.git
 > npm install
@@ -15,11 +17,13 @@ This is initial structure of a project. If you are trying to start a backend pro
 ```
 
 ### Testing
+
 ```
 > npm run test
 ```
 
 ### Prepare Deploying
+
 ```
 > cp .env.example .env
 > vi .env
@@ -28,6 +32,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 ```
 
 ## Developing
+
 - Remove local branches deleted on remote server
   ```
   > git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
@@ -36,8 +41,9 @@ This is initial structure of a project. If you are trying to start a backend pro
 - Check unused, outdated states of dependencies : **`depcheck` `npm-check-updates`**
 
 ### Tech Stack
-|    Category    |      Name      |
-|----------------|----------------|
+
+| Category       | Name           |
+| -------------- | -------------- |
 | Language       | **TypeScript** |
 | JS Runtime     | **Node**       |
 | Web Framework  | **Express**    |
@@ -49,6 +55,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 | Formatter      | **Prettier**   |
 
 ### Routing Example
+
 ```ts
 {
   path: '/posts',
@@ -60,9 +67,11 @@ This is initial structure of a project. If you are trying to start a backend pro
   handler: postPostHandler,
 }
 ```
+
 Manage all options in one object. auth, permission, upload, validator and handler are processed in order.
 
 ### Generating Migration
+
 - Auto generate : **`typeorm migration:generate -n <migration-name>`**
 - Create empty file : **`typeorm migration:create -n <migration-name>`**
 - Run migration : **`typeorm migration:run`**
@@ -71,6 +80,7 @@ Manage all options in one object. auth, permission, upload, validator and handle
 ## Project Structure
 
 ### API Directory
+
 ```
 api
 ├── post
@@ -99,9 +109,11 @@ api
    |  └── user.validator.ts
    └── v2
 ```
+
 There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.
 
 ### Other Directories
+
 ```
 src
 ├── app.ts
@@ -124,4 +136,5 @@ src
    ├── logger.ts
    └── upload.ts
 ```
-Other directories contain app configuration, db migraion, typescript declaration and utility files. Config is a directory of files to set up before listening the express app, but utils directory contains utilities used in various places. And types directory contains the declares used by most collections.
+
+Other directories contain app configuration, db migraion, typescript declaration and utility files. `Config` is a directory of files to set up before listening the express app, but `utils` directory contains utilities used in various places. And `types` directory contains the declares used by most collections.
