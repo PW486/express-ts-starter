@@ -1,12 +1,9 @@
-import { Column, Entity, ManyToOne, UpdateDateColumn } from 'typeorm';
-import { CommonEntity } from '../../utils/entity';
-import { User } from '../user/user.entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
+import { CommonEntity } from '@app/utils/entity';
+import { User } from '@app/api/user/user.entity';
 
 @Entity('post')
 export class Post extends CommonEntity {
-  @UpdateDateColumn({ type: 'timestamptz' })
-  public updatedAt: Date;
-
   @Column()
   public title: string;
 

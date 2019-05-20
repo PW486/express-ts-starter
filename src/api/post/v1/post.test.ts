@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';
-import app from '../../../app';
-import { DB_CONFIG, NODE_ENV } from '../../../config/environments';
+import app from '@app/app';
+import { DB_CONFIG, NODE_ENV } from '@app/config/environments';
 
 let token: string;
 let postId: number;

@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { getConnection } from 'typeorm';
-import { Post } from '../../post.entity';
+import { Post } from '@app/api/post/post.entity';
 
-interface PostGetAllQuery extends CommonQuery {
-  search?: string;
+interface PostGetAllQuery {
+  offset: number;
+  limit: number;
 }
 
 export async function postGetAllHandler(req: Request, res: Response, next: NextFunction) {

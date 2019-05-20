@@ -1,10 +1,14 @@
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import sendError from '../../../../utils/error';
-import { Post } from '../../post.entity';
+import { Post } from '@app/api/post/post.entity';
+import sendError from '@app/utils/error';
+
+interface PostGetByIdParams {
+  id: number;
+}
 
 export async function postGetByIdHandler(req: Request, res: Response, next: NextFunction) {
-  const params: CommonParams = req.params;
+  const params: PostGetByIdParams = req.params;
 
   const post = await getRepository(Post).findOne({ id: params.id });
   if (!post) return sendError(404, 'post not found', next);

@@ -3,15 +3,15 @@
   "version": "1.2.2",
   "description": "Quick Start TypeScript Express",
   "scripts": {
-    "start": "node dist/server.js",
-    "prestart": "npm run build && npm run test",
+    "start": "node -r ./tsconfig-paths-bootstrap.js dist/server.js",
     "build": "rm -rf ./dist && tsc",
     "test": "jest --forceExit --coverage --verbose --detectOpenHandles",
+    "pretest": "npm run build",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "format": "prettier --config .prettierrc --check src/**/*",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-ts": "tsc -w",
-    "watch-node": "nodemon --inspect dist/server.js",
+    "watch-node": "nodemon --inspect",
     "clean": "rm -rf ./node_modules && npm cache verify && rm ./package-lock.json"
   },
   "repository": {
@@ -36,7 +36,8 @@
     "pg": "^7.11.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.17",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "tsconfig-paths": "^3.8.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -59,6 +60,7 @@
     "nodemon": "^1.19.0",
     "prettier": "1.17.1",
     "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.4.5"

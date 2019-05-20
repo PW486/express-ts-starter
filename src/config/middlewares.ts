@@ -4,7 +4,7 @@ import express from 'express';
 import { Express, Request, Response } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import logger from '../utils/logger';
+import logger from '@app/utils/logger';
 
 export function mountMiddlewares(app: Express) {
   app.use(cors());
