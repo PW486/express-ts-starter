@@ -1,7 +1,7 @@
+import app from '@app/app';
 import request from 'supertest';
 import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';
-import app from '@app/app';
 
 let token: string;
 const random = v4();

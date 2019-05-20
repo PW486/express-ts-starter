@@ -1,6 +1,6 @@
+import { Post } from '@app/api/post/post.entity';
 import { NextFunction, Request, Response } from 'express';
 import { getConnection } from 'typeorm';
-import { Post } from '@app/api/post/post.entity';
 
 interface PostGetAllQuery {
   offset: number;

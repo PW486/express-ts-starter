@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
 import { JWT_EXPIRE } from '@app/config/environments';
+import { NextFunction, Request, Response } from 'express';
 import { getTokenByIdAction } from '../action/user.getTokenById';
 
 export async function getTokenHandler(req: Request, res: Response, next: NextFunction) {

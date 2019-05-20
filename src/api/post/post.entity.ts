@@ -1,6 +1,6 @@
-import { Column, Entity, ManyToOne } from 'typeorm';
-import { CommonEntity } from '@app/utils/entity';
 import { User } from '@app/api/user/user.entity';
+import { CommonEntity } from '@app/utils/entity';
+import { Column, Entity, ManyToOne } from 'typeorm';
 
 @Entity('post')
 export class Post extends CommonEntity {

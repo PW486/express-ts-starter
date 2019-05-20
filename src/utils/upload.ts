@@ -1,7 +1,7 @@
+import { FILE_IMAGE_SIZE } from '@app/config/environments';
 import { existsSync, mkdirSync } from 'fs';
 import multer from 'multer';
 import { extname } from 'path';
-import { FILE_IMAGE_SIZE } from '@app/config/environments';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
