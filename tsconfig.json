@@ -11,8 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": [
-        "src/*",
-        "dist/*"
+        "src/*"
       ]
     }
   },
