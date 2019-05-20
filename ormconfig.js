@@ -1,15 +1,2 @@
-const { DB_HOST, DB_PASSWORD } = require('./dist/config/environments');
-
-module.exports = {
-  type: 'postgres',
-  host: DB_HOST,
-  port: 5432,
-  username: 'prod',
-  password: DB_PASSWORD,
-  database: 'prod',
-  entities: ['dist/api/**/*.entity.js'],
-  migrations: ['dist/migrations/*.js'],
-  cli: {
-    migrationsDir: 'src/migrations',
-  },
-};
+const { DB_CONFIG } = require('./dist/config/environments');
+module.exports = DB_CONFIG;

@@ -2,14 +2,13 @@ import request from 'supertest';
 import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';
 import app from '@app/app';
-import { DB_CONFIG, NODE_ENV } from '@app/config/environments';
 
 let token: string;
 const random = v4();
 
 describe('User API v1', () => {
   beforeAll(async () => {
-    await createConnection(DB_CONFIG[NODE_ENV]);
+    await createConnection();
   });
 
   describe('POST /v1/signup', () => {
