@@ -3,7 +3,6 @@ import jwt from 'express-jwt';
 import guardFactory from 'express-jwt-permissions';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { CommonRoute } from 'types/route';
 import { JWT_SECRET } from './environments';
 
 const apiPath = join(__dirname, '../api');
