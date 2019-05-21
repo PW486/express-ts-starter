@@ -1,9 +1,9 @@
-import { User } from '@app/api/user/user.entity';
-import { JWT_EXPIRE } from '@app/config/environments';
-import sendError from '@app/utils/error';
+import { User } from 'api/user/user.entity';
 import bcrypt from 'bcrypt';
+import { JWT_EXPIRE } from 'config/environments';
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import sendError from 'utils/error';
 import { getTokenByIdAction } from '../action/user.getTokenById';
 
 interface PostSignUpBody {

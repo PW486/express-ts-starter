@@ -1,6 +1,6 @@
-import sendError from '@app/utils/error';
 import { isCelebrate } from 'celebrate';
 import { Express, NextFunction, Request, Response } from 'express';
+import sendError from 'utils/error';
 
 export function mountErrorHandlers(app: Express) {
   app.all('*', (req: Request, res: Response, next: NextFunction) => {

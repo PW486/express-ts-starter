@@ -1,4 +1,4 @@
-import { FILE_IMAGE_SIZE } from '@app/config/environments';
+import { FILE_IMAGE_SIZE } from 'config/environments';
 import { existsSync, mkdirSync } from 'fs';
 import multer from 'multer';
 import { extname } from 'path';

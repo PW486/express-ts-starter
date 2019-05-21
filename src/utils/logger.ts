@@ -1,4 +1,4 @@
-import { NODE_ENV } from '@app/config/environments';
+import { NODE_ENV } from 'config/environments';
 import winston from 'winston';
 
 const logger = winston.createLogger({

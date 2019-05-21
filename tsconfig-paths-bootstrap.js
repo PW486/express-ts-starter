@@ -1,9 +1,8 @@
 const tsConfigPaths = require('tsconfig-paths');
+const tsConfig = require('./tsconfig.json');
 
-const baseUrl = './';
+const baseUrl = 'dist';
 tsConfigPaths.register({
   baseUrl,
-  paths: {
-    '@app/*': ['dist/*'],
-  },
+  paths: tsConfig.compilerOptions.paths || {},
 });

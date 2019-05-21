@@ -1,4 +1,4 @@
-import { JWT_EXPIRE } from '@app/config/environments';
+import { JWT_EXPIRE } from 'config/environments';
 import { NextFunction, Request, Response } from 'express';
 import { getTokenByIdAction } from '../action/user.getTokenById';
 

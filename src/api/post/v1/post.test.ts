@@ -1,4 +1,4 @@
-import app from '@app/app';
+import app from 'app';
 import request from 'supertest';
 import { createConnection } from 'typeorm';
 import { v4 } from 'uuid';

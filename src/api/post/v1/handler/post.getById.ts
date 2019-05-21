@@ -1,7 +1,7 @@
-import { Post } from '@app/api/post/post.entity';
-import sendError from '@app/utils/error';
+import { Post } from 'api/post/post.entity';
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+import sendError from 'utils/error';
 
 interface PostGetByIdParams {
   id: number;

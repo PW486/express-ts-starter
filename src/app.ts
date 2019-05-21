@@ -1,9 +1,9 @@
 import express from 'express';
 import 'reflect-metadata';
 
-import { mountErrorHandlers } from '@app/config/errorHandlers';
-import { mountMiddlewares } from '@app/config/middlewares';
-import { mountRoutes } from '@app/config/routes';
+import { mountErrorHandlers } from 'config/errorHandlers';
+import { mountMiddlewares } from 'config/middlewares';
+import { mountRoutes } from 'config/routes';
 
 const app = express();
 

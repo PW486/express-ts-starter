@@ -1,5 +1,5 @@
-import { Post } from '@app/api/post/post.entity';
-import { User } from '@app/api/user/user.entity';
+import { Post } from 'api/post/post.entity';
+import { User } from 'api/user/user.entity';
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 

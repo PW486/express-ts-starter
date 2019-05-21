@@ -1,5 +1,5 @@
-import { User } from '@app/api/user/user.entity';
-import { JWT_EXPIRE, JWT_SECRET } from '@app/config/environments';
+import { User } from 'api/user/user.entity';
+import { JWT_EXPIRE, JWT_SECRET } from 'config/environments';
 import jwt from 'jsonwebtoken';
 import { getRepository } from 'typeorm';
 

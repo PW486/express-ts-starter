@@ -1,4 +1,4 @@
-import { Post } from '@app/api/post/post.entity';
+import { Post } from 'api/post/post.entity';
 import { NextFunction, Request, Response } from 'express';
 import { getConnection } from 'typeorm';
 
