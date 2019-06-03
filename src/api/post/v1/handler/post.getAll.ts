@@ -19,5 +19,5 @@ export async function postGetAllHandler(req: Request, res: Response, next: NextF
     .take(query.limit)
     .getMany();
 
-  res.status(200).json({ data: postList });
+  res.status(200).json(postList);
 }

@@ -37,7 +37,7 @@ describe('Post API v1', () => {
         .send({ title: 'title', text: 'text' });
       expect(res.status).toBe(201);
 
-      postId = res.body.data.id;
+      postId = res.body.id;
     });
   });
 

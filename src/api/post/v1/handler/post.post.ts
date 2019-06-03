@@ -19,5 +19,5 @@ export async function postPostHandler(req: Request, res: Response, next: NextFun
   });
   const post = await getRepository(Post).save(newPost);
 
-  res.status(201).json({ data: { id: post.id } });
+  res.status(201).json({ id: post.id });
 }

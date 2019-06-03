@@ -13,5 +13,5 @@ export async function postGetByIdHandler(req: Request, res: Response, next: Next
   const post = await getRepository(Post).findOne({ id: params.id });
   if (!post) return sendError(404, 'post not found', next);
 
-  res.status(200).json({ data: post });
+  res.status(200).json(post);
 }
