@@ -78,10 +78,10 @@ Manage all options in one object. auth, permission, upload, validator and handle
 
 ### Generating Migration
 
-- Auto generate : **`typeorm migration:generate -n <migration-name>`**
-- Create empty file : **`typeorm migration:create -n <migration-name>`**
-- Run migration : **`typeorm migration:run`**
-- Revert migration : **`typeorm migration:revert`**
+- Auto generate : **`npm run typeorm migration:generate -- -n <migration-name>`**
+- Create empty file : **`npm run typeorm migration:create -- -n <migration-name>`**
+- Run migration : **`npm run typeorm migration:run`**
+- Revert migration : **`npm run typeorm migration:revert`**
 
 ## Project Structure
 
