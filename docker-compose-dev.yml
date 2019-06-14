@@ -1,0 +1,56 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: express-ts
+    ports:
+      - 3000:3000
+    networks:
+      - backend
+    depends_on:
+      - postgres
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    environment:
+      - DB_HOST=postgres
+      - DB_USERNAME=test
+      - DB_PASSWORD_FILE=/run/secrets/db_password
+      - DB_NAME=test
+      - DB_SYNC=true
+      - JWT_SECRET_FILE=/run/secrets/jwt_secret
+    secrets:
+      - db_password
+      - jwt_secret
+
+  postgres:
+    image: postgres:11.3-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
+      - POSTGRES_DB=test
+    secrets:
+      - db_password
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  backend:
+
+volumes:
+  db-data:
+    driver: local
+
+secrets:
+  jwt_secret:
+    external: true
+  db_password:
+    external: true

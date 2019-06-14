@@ -1,0 +1,37 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: express-ts:app
+    ports:
+      - 3000:3000
+    networks:
+      - backend
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_USERNAME=test
+      - DB_PASSWORD=test
+      - DB_NAME=test
+      - DB_SYNC=true
+
+  postgres:
+    image: postgres:11.3-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+
+networks:
+  backend:
+
+volumes:
+  db-data:
+    driver: local
