@@ -1,0 +1,7 @@
+FROM node:10.15.3-alpine
+WORKDIR /app
+
+COPY . ./
+
+CMD node -r ./tsconfig-paths-bootstrap.js ./dist/server.js
+EXPOSE 3000

@@ -1,0 +1,5 @@
+.git/
+.vscode/
+coverage/
+logs/
+uploads/

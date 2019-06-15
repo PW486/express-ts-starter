@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node -r ./tsconfig-paths-bootstrap.js ./dist/server.js",
     "build": "rm -rf ./dist && tsc",
-    "pretest": "npm run build",
-    "test": "jest --forceExit --coverage --verbose --detectOpenHandles",
+    "test": "jest --silent --maxWorkers=4",
     "typeorm": "node -r ./tsconfig-paths-bootstrap.js ./node_modules/typeorm/cli.js",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "format": "prettier --config .prettierrc --check src/**/*",
