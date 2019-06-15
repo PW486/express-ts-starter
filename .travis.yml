@@ -13,6 +13,8 @@ before_install:
 install:
   - docker-compose -f docker-compose-test.yml build
   - docker-compose -f docker-compose-test.yml up -d
+  - docker images
+  - docker ps
 
 script:
-  - docker-compose -f docker-compose-test.yml exec app sh -c "npm test"
+  - docker-compose -f docker-compose-test.yml exec web sh -c "npm test"

@@ -1,8 +1,8 @@
 version: '3'
 services:
-  app:
+  web:
     build: .
-    image: express-ts:app
+    image: express-ts:web
     ports:
       - 3000:3000
     networks:
