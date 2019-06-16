@@ -3,7 +3,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile-test
+      dockerfile: Dockerfile.test
     image: express-ts:test
     ports:
       - 3000:3000

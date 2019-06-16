@@ -3,7 +3,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile-test
+      dockerfile: Dockerfile.prod
     image: 127.0.0.1:5000/express-ts:prod
     ports:
       - 3000:3000
@@ -11,9 +11,8 @@ services:
       - webnet
     depends_on:
       - postgres
-    restart: always
     deploy:
-      replicas: 2
+      replicas: 4
       restart_policy:
         condition: on-failure
     environment:
@@ -21,7 +20,6 @@ services:
       - DB_USERNAME=test
       - DB_PASSWORD_FILE=/run/secrets/db_password
       - DB_NAME=test
-      - DB_SYNC=true
       - JWT_SECRET_FILE=/run/secrets/jwt_secret
     secrets:
       - db_password
