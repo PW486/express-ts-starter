@@ -5,24 +5,18 @@ services:
 
 before_install:
   - sudo /etc/init.d/postgresql stop
-  - npm install
-  - npm run lint
-  - npm run format
-  - npm run build
 
 install:
-  - docker-compose -f docker-compose-test.yml build
-  - docker-compose -f docker-compose-test.yml up -d
-  - docker images
-  - docker ps
-  - sleep 10
-  - docker-compose -f docker-compose-test.yml ps
-  - docker-compose -f docker-compose-test.yml logs web
-  - npm test
+  - npm install
 
 before_script:
-  - curl http://localhost:3000/
+  - npm run lint
+  - npm run format
 
 script:
-  - docker-compose -f docker-compose-test.yml exec postgres sh -c "echo "testest""
-  - docker-compose -f docker-compose-test.yml exec web sh -c "ls"
+  - npm run build
+  - docker-compose -f docker-compose-test.yml build
+  - docker-compose -f docker-compose-test.yml up -d
+  - sleep 10
+  - curl http://localhost:3000/
+  - npm test

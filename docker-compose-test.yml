@@ -7,6 +7,8 @@ services:
     image: express-ts:test
     ports:
       - 3000:3000
+    networks:
+      - backend
     depends_on:
       - postgres
     restart: always
@@ -23,10 +25,15 @@ services:
       - db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - backend
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
       - POSTGRES_DB=test
+
+networks:
+  backend:
 
 volumes:
   db-data:
