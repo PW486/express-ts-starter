@@ -6,6 +6,8 @@ services:
 before_install:
   - sudo /etc/init.d/postgresql stop
   - npm install
+  - npm run lint
+  - npm run format
   - npm run build
 
 install:
@@ -16,7 +18,7 @@ install:
   - sleep 10
   - docker-compose -f docker-compose-test.yml ps
   - docker-compose -f docker-compose-test.yml logs web
-  - npm run test
+  - npm test
 
 before_script:
   - curl http://localhost:3000/
