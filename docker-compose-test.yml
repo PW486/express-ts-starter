@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   web:
     build:
@@ -8,10 +8,10 @@ services:
     ports:
       - 3000:3000
     networks:
-      - backend
+      - webnet
     depends_on:
       - postgres
-    restart: always
+    restart: on-failure
     environment:
       - DB_HOST=postgres
       - DB_USERNAME=test
@@ -26,14 +26,14 @@ services:
     ports:
       - 5432:5432
     networks:
-      - backend
+      - webnet
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
       - POSTGRES_DB=test
 
 networks:
-  backend:
+  webnet:
 
 volumes:
   db-data:

@@ -2,5 +2,6 @@
   "tslint.autoFixOnSave": true,
   "prettier.tslintIntegration": true,
   "editor.formatOnSave": true,
-  "javascript.suggestionActions.enabled": false
+"javascript.suggestionActions.enabled": false,
+"typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -4,11 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-test
-    image: 127.0.0.1:5000/express-ts:prod
+    image: express-ts:prod
     ports:
       - 3000:3000
     networks:
-      - webnet
+      - backend
     depends_on:
       - postgres
     restart: always
@@ -21,7 +21,6 @@ services:
       - DB_USERNAME=test
       - DB_PASSWORD_FILE=/run/secrets/db_password
       - DB_NAME=test
-      - DB_SYNC=true
       - JWT_SECRET_FILE=/run/secrets/jwt_secret
     secrets:
       - db_password
@@ -34,7 +33,7 @@ services:
     ports:
       - 5432:5432
     networks:
-      - webnet
+      - backend
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
@@ -43,17 +42,18 @@ services:
       - db_password
     deploy:
       placement:
-        constraints: [node.role == manager]
+        constraints:
+          - node.role == manager
 
 networks:
-  webnet:
+  backend:
+
+volumes:
+  db-data:
+    driver: local
 
 secrets:
   jwt_secret:
     external: true
   db_password:
     external: true
-
-volumes:
-  db-data:
-    driver: local
