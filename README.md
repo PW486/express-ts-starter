@@ -1,4 +1,4 @@
-# TypeScript Express Starter Kit <br>[![GitHub issues](https://img.shields.io/github/issues/PW486/express-ts-starter.svg?style=flat-square)](https://github.com/PW486/express-ts-starter/issues) [![GitHub forks](https://img.shields.io/github/forks/PW486/express-ts-starter.svg?style=flat-square)](https://github.com/PW486/express-ts-starter/network) [![GitHub stars](https://img.shields.io/github/stars/PW486/express-ts-starter.svg?style=flat-square&color=orange)](https://github.com/PW486/express-ts-starter/stargazers) [![GitHub license](https://img.shields.io/github/license/PW486/express-ts-starter.svg?style=flat-square&color=violet)](https://github.com/PW486/express-ts-starter/blob/develop/LICENSE) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PW486/express-ts-starter.svg?color=blueviolet&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/PW486/express-ts-starter.svg?style=flat-square&color=red) ![David](https://img.shields.io/david/PW486/express-ts-starter.svg?style=flat-square&color=9cf)
+# TypeScript Express Starter Kit <br>[![Travis (.com)](https://img.shields.io/travis/com/PW486/express-ts-starter.svg?style=flat-square)](https://travis-ci.com/PW486/express-ts-starter) [![GitHub issues](https://img.shields.io/github/issues/PW486/express-ts-starter.svg?style=flat-square&color=brown)](https://github.com/PW486/express-ts-starter/issues) [![GitHub forks](https://img.shields.io/github/forks/PW486/express-ts-starter.svg?style=flat-square)](https://github.com/PW486/express-ts-starter/network) [![GitHub stars](https://img.shields.io/github/stars/PW486/express-ts-starter.svg?style=flat-square&color=orange)](https://github.com/PW486/express-ts-starter/stargazers) [![GitHub license](https://img.shields.io/github/license/PW486/express-ts-starter.svg?style=flat-square&color=violet)](https://github.com/PW486/express-ts-starter/blob/develop/LICENSE) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/PW486/express-ts-starter.svg?color=blueviolet&style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/PW486/express-ts-starter.svg?style=flat-square&color=red) [![David](https://img.shields.io/david/PW486/express-ts-starter.svg?style=flat-square&color=green)](https://david-dm.org/PW486/express-ts-starter)
 
 > 🚀 Quick Start TypeScript Express
 
@@ -34,7 +34,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 > vi .env
 > NODE_ENV=production
 > npm run build
-> npm start
+> pm2 start ecosystem.config.js
 ```
 
 ## Developing
