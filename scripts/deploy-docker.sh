@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# Prepare Deploying
+npm install
+npm run build
+echo "NODE_ENV=production" > .env
+
 # Set up a Docker registry
 docker swarm init
 docker service create --name registry --publish published=5000,target=5000 registry:2
@@ -16,3 +21,7 @@ docker-compose -f docker-compose-prod.yml push
 # Deploy the stack to the swarm
 docker stack deploy -c docker-compose-prod.yml express_ts
 docker stack services express_ts
+docker service logs express_ts_web
+
+# Remove unused Data
+docker system prune -f

@@ -30,9 +30,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 ### Prepare Deploying
 
 ```
-> cp .env.example .env
-> vi .env
-> NODE_ENV=production
+> echo "NODE_ENV=production" > .env
 > npm run build
 > pm2 start ecosystem.config.js
 ```
