@@ -2,8 +2,8 @@ import { Post } from 'api/post/post.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { CommonEntity } from 'utils/entity';
 
-@Entity('user')
-export class User extends CommonEntity {
+@Entity('account')
+export class Account extends CommonEntity {
   @Column()
   public name: string;
 
@@ -16,6 +16,6 @@ export class User extends CommonEntity {
   @Column('text')
   public password: string;
 
-  @OneToMany(type => Post, post => post.user)
+  @OneToMany(type => Post, post => post.account)
   public posts: Post[];
 }

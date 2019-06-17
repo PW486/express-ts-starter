@@ -98,19 +98,19 @@ api
 |     ├── post.route.ts
 |     ├── post.test.ts
 |     └── post.validator.ts
-└── user
-   ├── user.entity.ts
+└── account
+   ├── account.entity.ts
    ├── v1
    |  ├── action
-   |  |  └── user.getTokenById.ts
+   |  |  └── account.getTokenById.ts
    |  ├── handler
-   |  |  ├── user.getToken.ts
-   |  |  ├── user.postSignIn.ts
-   |  |  └── user.postSignUp.ts
+   |  |  ├── account.getToken.ts
+   |  |  ├── account.postSignIn.ts
+   |  |  └── account.postSignUp.ts
    |  ├── index.ts
-   |  ├── user.route.ts
-   |  ├── user.test.ts
-   |  └── user.validator.ts
+   |  ├── account.route.ts
+   |  ├── account.test.ts
+   |  └── account.validator.ts
    └── v2
 ```
 

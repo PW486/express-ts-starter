@@ -1,6 +1,6 @@
 import { JWT_EXPIRE } from 'config/environments';
 import { NextFunction, Request, Response } from 'express';
-import { getTokenByIdAction } from '../action/user.getTokenById';
+import { getTokenByIdAction } from '../action/account.getTokenById';
 
 export async function getTokenHandler(req: Request, res: Response, next: NextFunction) {
   const accessToken = await getTokenByIdAction(req.user.id);

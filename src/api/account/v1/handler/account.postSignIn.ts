@@ -1,10 +1,10 @@
-import { User } from 'api/user/user.entity';
+import { Account } from 'api/account/account.entity';
 import bcrypt from 'bcrypt';
 import { JWT_EXPIRE } from 'config/environments';
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 import sendError from 'utils/error';
-import { getTokenByIdAction } from '../action/user.getTokenById';
+import { getTokenByIdAction } from '../action/account.getTokenById';
 
 interface PostSignInBody {
   email: string;
@@ -16,13 +16,13 @@ export async function postSignInHandler(req: Request, res: Response, next: NextF
   const email = body.email;
   const password = body.password;
 
-  const user = await getRepository(User).findOne({ email });
-  if (!user) return sendError(400, 'invalid email or password', next);
+  const account = await getRepository(Account).findOne({ email });
+  if (!account) return sendError(400, 'invalid email or password', next);
 
-  const result = await bcrypt.compare(password, user.password);
+  const result = await bcrypt.compare(password, account.password);
   if (!result) return sendError(400, 'invalid email or password', next);
 
-  const accessToken = await getTokenByIdAction(user.id);
+  const accessToken = await getTokenByIdAction(account.id);
 
   res.status(200).json({ access_token: accessToken, expires_in: JWT_EXPIRE });
 }

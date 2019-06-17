@@ -12,26 +12,26 @@ describe('Post API v1', () => {
     await createConnection();
 
     const res = await request(app)
-      .post('/v1/signup')
+      .post('/api/v1/signup')
       .set('Content-Type', 'application/json')
       .send({ name: 'test', email: `${random}@test.com`, password: 'test' });
 
     token = res.body.access_token;
   });
 
-  describe('GET /v1/posts', () => {
+  describe('GET /api/v1/posts', () => {
     test('should return all posts', async () => {
       const res = await request(app)
-        .get('/v1/posts')
+        .get('/api/v1/posts')
         .set('Authorization', `Bearer ${token}`);
       expect(res.status).toBe(200);
     });
   });
 
-  describe('POST /v1/posts', () => {
+  describe('POST /api/v1/posts', () => {
     test('should create post and return post.id', async () => {
       const res = await request(app)
-        .post('/v1/posts')
+        .post('/api/v1/posts')
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
         .send({ title: 'title', text: 'text' });
@@ -41,10 +41,10 @@ describe('Post API v1', () => {
     });
   });
 
-  describe('GET /v1/posts/:id', () => {
+  describe('GET /api/v1/posts/:id', () => {
     test('should return one post', async () => {
       const res = await request(app)
-        .get(`/v1/posts/${postId}`)
+        .get(`/api/v1/posts/${postId}`)
         .set('Authorization', `Bearer ${token}`);
       expect(res.status).toBe(200);
     });

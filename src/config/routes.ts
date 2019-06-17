@@ -18,7 +18,7 @@ export function mountRoutes(app: Express) {
 
         for (const route of routes) {
           app[route.method](
-            join('/', version, route.path),
+            join('/api', version, route.path),
             route.auth ? jwt({ secret: JWT_SECRET }) : [],
             route.permission ? guard.check(route.permission) : [],
             route.upload || [],

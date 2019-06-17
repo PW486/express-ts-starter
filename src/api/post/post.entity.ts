@@ -1,4 +1,4 @@
-import { User } from 'api/user/user.entity';
+import { Account } from 'api/account/account.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
 import { CommonEntity } from 'utils/entity';
 
@@ -13,6 +13,6 @@ export class Post extends CommonEntity {
   @Column({ nullable: true })
   public photo?: string;
 
-  @ManyToOne(type => User, user => user.posts, { nullable: false })
-  public user: User;
+  @ManyToOne(type => Account, account => account.posts, { nullable: false })
+  public account: Account;
 }
