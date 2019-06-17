@@ -23,5 +23,9 @@ docker stack deploy -c docker-compose-prod.yml express_ts
 docker stack services express_ts
 docker service logs express_ts_web
 
+# Migrate DB schemas
+npm run typeorm schema:sync
+npm run typeorm migration:run
+
 # Remove unused Data
 docker system prune -f

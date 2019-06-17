@@ -17,9 +17,9 @@ services:
         condition: on-failure
     environment:
       - DB_HOST=postgres
-      - DB_USERNAME=test
+      - DB_USERNAME=prod
       - DB_PASSWORD_FILE=/run/secrets/db_password
-      - DB_NAME=test
+      - DB_NAME=prod
       - JWT_SECRET_FILE=/run/secrets/jwt_secret
     secrets:
       - db_password
@@ -34,9 +34,9 @@ services:
     networks:
       - webnet
     environment:
-      - POSTGRES_USER=test
+      - POSTGRES_USER=prod
       - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
-      - POSTGRES_DB=test
+      - POSTGRES_DB=prod
     secrets:
       - db_password
     deploy:
