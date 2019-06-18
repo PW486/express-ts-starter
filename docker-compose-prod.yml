@@ -11,10 +11,8 @@ services:
       - webnet
     depends_on:
       - postgres
-    deploy:
-      replicas: 4
-      restart_policy:
-        condition: on-failure
+    volumes:
+      - pm2_data:/root/.pm2/logs
     environment:
       - DB_HOST=postgres
       - DB_USERNAME=prod
@@ -24,15 +22,19 @@ services:
     secrets:
       - db_password
       - jwt_secret
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: on-failure
 
   postgres:
     image: postgres:11.3-alpine
-    volumes:
-      - db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
       - webnet
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=prod
       - POSTGRES_PASSWORD_FILE=/run/secrets/db_password
@@ -46,12 +48,14 @@ services:
 networks:
   webnet:
 
+volumes:
+  pg_data:
+    driver: local
+  pm2_data:
+    driver: local
+
 secrets:
   jwt_secret:
     external: true
   db_password:
     external: true
-
-volumes:
-  db-data:
-    driver: local

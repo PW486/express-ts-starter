@@ -24,9 +24,8 @@ docker stack services express_ts
 docker service logs express_ts_web
 
 # Migrate DB schemas
-docker ps
-docker exec -it <container_id> /bin/sh -c "npm run typeorm schema:sync"
-docker exec -it <container_id> /bin/sh -c "npm run typeorm migration:run"
+docker stack ps express_ts
+docker exec -it $(docker ps -lq -f "name=express_ts_web") sh -c "npm run typeorm migration:run"
 
 # Remove unused Data
 docker system prune -f

@@ -21,12 +21,12 @@ services:
 
   postgres:
     image: postgres:11.3-alpine
-    volumes:
-      - db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
       - webnet
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=test
       - POSTGRES_PASSWORD=test
@@ -36,5 +36,5 @@ networks:
   webnet:
 
 volumes:
-  db-data:
+  pg_data:
     driver: local

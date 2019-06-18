@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { ConnectionOptions } from 'typeorm';
 import { existsSync, readFileSync } from 'fs';
+import { ConnectionOptions } from 'typeorm';
 
 dotenv.config();
 

@@ -15,14 +15,15 @@ install:
 before_script:
   - npm run lint
   - npm run format
+  - npm run build
 
 script:
-  - npm run build
   - docker-compose -f docker-compose-test.yml build
   - docker-compose -f docker-compose-test.yml up -d
   - sleep 10
   - docker-compose -f docker-compose-test.yml ps
-  - npm test
+  - docker ps
+  - docker exec -it $(docker ps -lq -f "name=express-ts-starter_web") sh -c "npm test"
 
 after_script:
   - curl http://localhost:3000/

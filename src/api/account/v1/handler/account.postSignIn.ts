@@ -1,5 +1,5 @@
 import { Account } from 'api/account/account.entity';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { JWT_EXPIRE } from 'config/environments';
 import { NextFunction, Request, Response } from 'express';
 import { getRepository } from 'typeorm';

@@ -1,7 +1,7 @@
+import { postSignInValidator, postSignUpValidator } from './account.validator';
 import { getTokenHandler } from './handler/account.getToken';
 import { postSignInHandler } from './handler/account.postSignIn';
 import { postSignUpHandler } from './handler/account.postSignUp';
-import { postSignInValidator, postSignUpValidator } from './account.validator';
 
 export const routes: CommonRoute[] = [
   {
