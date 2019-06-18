@@ -11,7 +11,7 @@ services:
       - webnet
     depends_on:
       - postgres
-    restart: on-failure
+    restart: always
     environment:
       - DB_HOST=postgres
       - DB_USERNAME=test

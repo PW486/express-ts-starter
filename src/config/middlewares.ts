@@ -32,5 +32,5 @@ export function mountMiddlewares(app: Express) {
     }),
   );
 
-  app.use('/uploads', express.static('uploads'));
+  app.use('/api/uploads', express.static('uploads'));
 }

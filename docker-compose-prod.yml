@@ -13,6 +13,7 @@ services:
       - postgres
     volumes:
       - pm2_data:/root/.pm2/logs
+      - upload_data:/app/uploads
     environment:
       - DB_HOST=postgres
       - DB_USERNAME=prod
@@ -52,6 +53,8 @@ volumes:
   pg_data:
     driver: local
   pm2_data:
+    driver: local
+  upload_data:
     driver: local
 
 secrets:
