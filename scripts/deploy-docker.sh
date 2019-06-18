@@ -3,7 +3,7 @@
 # Prepare Deploying
 npm install
 npm run build
-echo "NODE_ENV=production" > .env
+cp .env.example .env
 
 # Set up a Docker registry
 docker swarm init
@@ -11,8 +11,8 @@ docker service create --name registry --publish published=5000,target=5000 regis
 docker service ls
 
 # Make Docker secrets
-echo "dbsecret" | docker secret create db_password -
-echo "jwtsecret" | docker secret create jwt_secret -
+echo "db_password" | docker secret create db_password -
+echo "jwt_secret" | docker secret create jwt_secret -
 
 # Push the generated image to the registry
 docker-compose -f docker-compose-prod.yml build
@@ -24,8 +24,9 @@ docker stack services express_ts
 docker service logs express_ts_web
 
 # Migrate DB schemas
-npm run typeorm schema:sync
-npm run typeorm migration:run
+docker ps
+docker exec -it <container_id> /bin/sh -c "npm run typeorm schema:sync"
+docker exec -it <container_id> /bin/sh -c "npm run typeorm migration:run"
 
 # Remove unused Data
 docker system prune -f
