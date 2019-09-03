@@ -8,14 +8,14 @@ This is initial structure of a project. If you are trying to start a backend pro
 
 ### Set Environments
 
-```
+```sh
 > cp .env.example .env
 > vi .env
 ```
 
 ### Clone & Install Dependencies
 
-```
+```sh
 > git clone https://github.com/PW486/express-ts-starter.git
 > npm install
 > npm run watch
@@ -23,13 +23,13 @@ This is initial structure of a project. If you are trying to start a backend pro
 
 ### Testing
 
-```
+```sh
 > npm test
 ```
 
 ### Prepare Deploying
 
-```
+```sh
 > echo "NODE_ENV=production" > .env
 > npm run build
 > pm2 start ecosystem.config.js
@@ -38,7 +38,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 ## Developing
 
 - Remove local branches deleted on remote server
-  ```
+  ```sh
   > git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
   ```
 - Keep the linter and formatter rules
@@ -141,3 +141,8 @@ src
 ```
 
 Other directories contain app configuration, db migraion, typescript declaration and utility files. `Config` is a directory of files to set up before listening the express app, but `utils` directory contains utilities used in various places. And `types` directory contains the declares used by most collections.
+
+## License
+
+Copyright © 2019 [DONGGEON LIM](https://github.com/PW486).<br />
+This project is [MIT](https://github.com/PW486/express-ts-starter/blob/master/LICENSE) licensed.
