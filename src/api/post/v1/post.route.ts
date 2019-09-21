@@ -1,8 +1,10 @@
 import { imageUpload } from 'utils/upload';
+import { postDelByIdHandler } from './handler/post.delById';
 import { postGetAllHandler } from './handler/post.getAll';
 import { postGetByIdHandler } from './handler/post.getById';
 import { postPostHandler } from './handler/post.post';
-import { postGetAllValidator, postGetByIdValidator, postPostValidator } from './post.validator';
+import { postPutByIdHandler } from './handler/post.putById';
+import { postDelByIdValidator, postGetAllValidator, postGetByIdValidator, postPostValidator, postPutByIdValidator } from './post.validator';
 
 export const routes: CommonRoute[] = [
   {
@@ -28,5 +30,21 @@ export const routes: CommonRoute[] = [
     upload: imageUpload.single('photo'),
     validator: postPostValidator,
     handler: postPostHandler,
+  },
+  {
+    path: '/posts/:id',
+    method: 'put',
+    auth: true,
+    permission: [['admin'], ['default', 'human']],
+    validator: postPutByIdValidator,
+    handler: postPutByIdHandler,
+  },
+  {
+    path: '/posts/:id',
+    method: 'delete',
+    auth: true,
+    permission: ['admin'],
+    validator: postDelByIdValidator,
+    handler: postDelByIdHandler,
   },
 ];

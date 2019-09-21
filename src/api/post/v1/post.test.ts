@@ -49,4 +49,24 @@ describe('Post API v1', () => {
       expect(res.status).toBe(200);
     });
   });
+
+  describe('PUT /api/v1/posts/:id', () => {
+    test('should update post and return post.id', async () => {
+      const res = await request(app)
+        .put(`/api/v1/posts/${postId}`)
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json')
+        .send({ title: 'title', text: 'text' });
+      expect(res.status).toBe(200);
+    });
+  });
+
+  describe('DELETE /api/v1/posts/:id', () => {
+    test('should return OK status', async () => {
+      const res = await request(app)
+        .del(`/api/v1/posts/${postId}`)
+        .set('Authorization', `Bearer ${token}`);
+      expect(res.status).toBe(200);
+    });
+  });
 });

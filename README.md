@@ -60,6 +60,8 @@ This is initial structure of a project. If you are trying to start a backend pro
 
 ### Routing Example
 
+**`POST /api/v1/posts`**
+
 ```ts
 {
   path: '/posts',
@@ -91,9 +93,11 @@ api
 |  ├── post.entity.ts
 |  └── v1
 |     ├── handler
+|     |  ├── post.delById.ts
 |     |  ├── post.getAll.ts
 |     |  ├── post.getById.ts
-|     |  └── post.post.ts
+|     |  ├── post.post.ts
+|     |  └── post.putById.ts
 |     ├── index.ts
 |     ├── post.route.ts
 |     ├── post.test.ts
@@ -114,7 +118,7 @@ api
    └── v2
 ```
 
-There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.
+There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler. If you create route in the **`v1`**, **`v2`** directories, the endpoint is automatically prefixed with **`v1`**, **`v2`**.
 
 ### Other Directories
 
