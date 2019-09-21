@@ -118,7 +118,8 @@ api
    └── v2
 ```
 
-There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler. If you create route in the **`v1`**, **`v2`** directories, the endpoint is automatically prefixed with **`v1`**, **`v2`**.
+There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.<br />
+If you create route in the **`v1`**, **`v2`** directories, the endpoint is automatically prefixed with **`v1`**, **`v2`**.
 
 ### Other Directories
 
@@ -144,7 +145,7 @@ src
    └── upload.ts
 ```
 
-Other directories contain app configuration, db migraion, typescript declaration and utility files. `Config` is a directory of files to set up before listening the express app, but `utils` directory contains utilities used in various places. And `types` directory contains the declares used by most collections.
+Other directories contain app configuration, db migraion, typescript declaration and utility files. **`Config`** is a directory of files to set up before listening the express app, but **`utils`** directory contains utilities used in various places. And **`types`** directory contains the declares used by most collections.
 
 ## License
 
