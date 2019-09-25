@@ -28,13 +28,26 @@ describe('Post API v1', () => {
     });
   });
 
-  describe('POST /api/v1/posts', () => {
+  describe('POST /api/v1/posts (application/json)', () => {
     test('should create post and return post.id', async () => {
       const res = await request(app)
         .post('/api/v1/posts')
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
         .send({ title: 'title', text: 'text' });
+      expect(res.status).toBe(201);
+    });
+  });
+
+  describe('POST /api/v1/posts (multipart/form-data)', () => {
+    test('should create post with image and return post.id', async () => {
+      const res = await request(app)
+        .post('/api/v1/posts')
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'multipart/form-data')
+        .attach('photo', 'public/images/test.png')
+        .field('title', 'title')
+        .field('text', 'text');
       expect(res.status).toBe(201);
 
       postId = res.body.id;
