@@ -55,7 +55,7 @@
     "@types/supertest": "^2.0.8",
     "@types/uuid": "^3.4.5",
     "@types/winston": "^2.4.4",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.0.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.3",
     "prettier": "1.18.2",
