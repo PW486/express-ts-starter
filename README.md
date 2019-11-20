@@ -145,7 +145,7 @@ src
    └── upload.ts
 ```
 
-Other directories contain app configuration, db migraion, typescript declaration and utility files. **`Config`** is a directory of files to set up before listening the express app, but **`utils`** directory contains utilities used in various places. And **`types`** directory contains the declares used by most collections.
+Other directories contain app configuration, db migration, typescript declaration and utility files. **`Config`** is a directory of files to set up before listening the express app, but **`utils`** directory contains utilities used in various places. And **`types`** directory contains the declares used by most collections.
 
 ## License
 
