@@ -2,7 +2,7 @@
 
 > 🚀 Quick Start TypeScript Express
 
-This is initial structure of a project. If you are trying to start a backend project with express, this kit is possible to minimize troublesome work.
+This is the initial structure of a project. If you are trying to start a backend project with express, this kit is possible to minimize troublesome work.
 
 ## Getting Started
 
@@ -37,12 +37,12 @@ This is initial structure of a project. If you are trying to start a backend pro
 
 ## Developing
 
-- Remove local branches deleted on remote server
+- Remove local branches deleted on the remote server
   ```sh
   > git fetch -p && for branch in `git branch -vv --no-color | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done
   ```
 - Keep the linter and formatter rules
-- Check unused, outdated states of dependencies : **`depcheck` `npm-check-updates`**
+- Check unused, outdated states of dependencies: **`depcheck` `npm-check-updates`**
 
 ### Tech Stack
 
@@ -74,7 +74,7 @@ This is initial structure of a project. If you are trying to start a backend pro
 }
 ```
 
-Manage all options in one object. auth, permission, upload, validator and handler are processed in order.
+Manage all options in one object. auth, permission, upload, validator, and handler are processed in the order.
 
 ### Generating Migration
 
@@ -119,7 +119,7 @@ api
 ```
 
 There are collection directories within API. Each collection contains **`<collection-name>.entity.ts`** and different files(**`route` `validator` `handler` `action` `test`**) for each version. Action is a function that makes code duplicated in a handler.<br />
-If you create route in the **`v1`**, **`v2`** directories, the endpoint is automatically prefixed with **`v1`**, **`v2`**.
+If you create a route in the **`v1`**, **`v2`** directories, the endpoint is automatically prefixed with **`v1`**, **`v2`**.
 
 ### Other Directories
 
@@ -145,7 +145,7 @@ src
    └── upload.ts
 ```
 
-Other directories contain app configuration, db migration, typescript declaration and utility files. **`Config`** is a directory of files to set up before listening the express app, but **`utils`** directory contains utilities used in various places. And **`types`** directory contains the declares used by most collections.
+Other directories contain app configuration, db migration, typescript declaration and utility files. **`Config`** is a directory of files to set up before listening to the express app, but **`utils`** directory contains utilities used in various places. And **`types`** directory contains the declares used by most collections.
 
 ## License
 
